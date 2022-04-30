@@ -40,6 +40,7 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import PauseIcon from '@mui/icons-material/Pause';
 import StopIcon from '@mui/icons-material/Stop';
 import RateCall from './views/agentViews/RateCall';
+import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 
 const drawerWidth = 240;
 
@@ -54,9 +55,9 @@ export default function PermanentDrawerLeft() {
     const menuLinkItemsManagers = [
         { icon: <HomeIcon />, name: 'Home', link: '/' },
         { icon: <PersonIcon />, name: 'Agents', link: '/profile' },
-        { icon: <PersonIcon />, name: 'Supervisors', link: '/profile' },
+        { icon: <SupervisorAccountIcon />, name: 'Supervisors', link: '/profile' },
         { icon: <VideocamIcon />, name: 'Videos library', link: '/recordings' },
-        { icon: <SettingsIcon />, name: 'Settings', link: '/settings' },
+        { icon: <SettingsIcon />, name: 'Video settings', link: '/settings' },
     ];
 
 

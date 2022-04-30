@@ -10,7 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
-      {/*<AppManager/>*/}
+      {/* <AppManager />*/}
       {/*<AppSupervisor/>*/}
     </BrowserRouter>
   </React.StrictMode>,
