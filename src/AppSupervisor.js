@@ -40,6 +40,7 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import PauseIcon from '@mui/icons-material/Pause';
 import StopIcon from '@mui/icons-material/Stop';
 import RateCall from './views/agentViews/RateCall';
+import AlignVerticalBottomIcon from '@mui/icons-material/AlignVerticalBottom';
 
 const drawerWidth = 240;
 
@@ -51,10 +52,12 @@ const CustomLink = styled(Link)(({ theme }) => ({
 export default function PermanentDrawerLeft() {
 
     const { status, startRecording, stopRecording, mediaBlobUrl } = useReactMediaRecorder({ audio: true, screen: true });
-    const menuLinkItemsManagers = [
+    const menuLinkItemsSupervisor = [
         { icon: <HomeIcon />, name: 'Home', link: '/' },
         { icon: <PersonIcon />, name: 'Agents', link: '/profile' },
         { icon: <VideocamIcon />, name: 'Videos library', link: '/recordings' },
+        { icon: <AlignVerticalBottomIcon />, name: 'Metrics', link: '/' }
+
     ];
 
 
@@ -112,7 +115,7 @@ export default function PermanentDrawerLeft() {
                 <Divider />
                 <List>
 
-                    {menuLinkItemsManagers.map((item) => (
+                    {menuLinkItemsSupervisor.map((item) => (
                         <CustomLink to={item.link}>
                             <ListItem button>
                                 <ListItemIcon>

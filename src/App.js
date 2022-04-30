@@ -40,6 +40,7 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import PauseIcon from '@mui/icons-material/Pause';
 import StopIcon from '@mui/icons-material/Stop';
 import RateCall from './views/agentViews/RateCall';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 
 const drawerWidth = 240;
 
@@ -130,7 +131,7 @@ export default function PermanentDrawerLeft() {
 
           <ListItem button onClick={handleClickOpen}>
             <ListItemIcon>
-              <SettingsIcon />
+              <LocalPhoneIcon />
             </ListItemIcon>
             <ListItemText primary={"Call Dialog"} />
           </ListItem>
