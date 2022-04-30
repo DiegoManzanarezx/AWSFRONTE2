@@ -54,13 +54,15 @@ export default function PermanentDrawerLeft() {
 
   const menuLinkItems = [
     { icon: <HomeIcon />, name: 'Home', link: '/' },
-    { icon: <PersonIcon />, name: 'Profile', link: '/profile' },
-    { icon: <PermPhoneMsgIcon />, name: 'Call history', link: '/calls' },
     { icon: <VideocamIcon />, name: 'Recording Library', link: '/recordings' },
-    { icon: <QuestionAnswerIcon />, name: 'Question Database', link: '/questiondb' },
     { icon: <SettingsIcon />, name: 'Settings', link: '/settings' },
   ];
-
+  const menuLinkItemsSupervisor = [
+    { icon: <HomeIcon />, name: 'Home', link: '/' },
+    { icon: <PersonIcon />, name: 'Agents', link: '/profile' },
+    { icon: <VideocamIcon />, name: 'Videos library', link: '/recordings' },
+    { icon: <SettingsIcon />, name: 'Metrics', link: '/settings' },
+  ];
   const callActions = [
     { icon: <Link to="/rate"><CallEndIcon /></Link>, name: 'Hang up', onclick: () => { handleActiveCall(false); stopRecording(); } },
     { icon: <FiberManualRecordIcon />, name: 'Start recording' },
@@ -79,7 +81,7 @@ export default function PermanentDrawerLeft() {
     setOpen(false);
     setSelectedValue(value);
 
-    if(value == "pick_up") {
+    if (value == "pick_up") {
       handleActiveCall(true);
       startRecording();
     }
@@ -123,29 +125,29 @@ export default function PermanentDrawerLeft() {
         <List>
 
           {menuLinkItems.map((item) => (
-          <CustomLink to={item.link}>
-            <ListItem button>
-              <ListItemIcon>
-                {item.icon}
-              </ListItemIcon>
-              <ListItemText primary={item.name} />
-            </ListItem>
-          </CustomLink>
+            <CustomLink to={item.link}>
+              <ListItem button>
+                <ListItemIcon>
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText primary={item.name} />
+              </ListItem>
+            </CustomLink>
           ))}
 
-            <ListItem button onClick={handleClickOpen}>
-                <ListItemIcon>
-                  <SettingsIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Call Dialog"} />
-              </ListItem>
+          <ListItem button onClick={handleClickOpen}>
+            <ListItemIcon>
+              <SettingsIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Call Dialog"} />
+          </ListItem>
 
-      <IncomingCall
-        selectedValue={selectedValue}
-        open={open}
-        onClose={handleClose}
-      />
-              
+          <IncomingCall
+            selectedValue={selectedValue}
+            open={open}
+            onClose={handleClose}
+          />
+
         </List>
       </Drawer>
       <Box
@@ -165,22 +167,22 @@ export default function PermanentDrawerLeft() {
           <Route path="/rate" element={<RateCall blobUrl={mediaBlobUrl} />} />
         </Routes>
 
-        {activeCall && 
-        <SpeedDial
-        ariaLabel="SpeedDial basic example"
-        sx={{ position: 'absolute', bottom: 16, right: 16 }}
-        icon={<CallIcon />}
-      >
-        {callActions.map((action) => (
-          <SpeedDialAction
-            key={action.name}
-            icon={action.icon}
-            tooltipTitle={action.name}
-            onClick={action.onclick}
-          />
-        ))}
-      </SpeedDial>
-      }
+        {activeCall &&
+          <SpeedDial
+            ariaLabel="SpeedDial basic example"
+            sx={{ position: 'absolute', bottom: 16, right: 16 }}
+            icon={<CallIcon />}
+          >
+            {callActions.map((action) => (
+              <SpeedDialAction
+                key={action.name}
+                icon={action.icon}
+                tooltipTitle={action.name}
+                onClick={action.onclick}
+              />
+            ))}
+          </SpeedDial>
+        }
       </Box>
     </Box>
   );
