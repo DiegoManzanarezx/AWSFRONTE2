@@ -55,13 +55,6 @@ export default function PermanentDrawerLeft() {
   const menuLinkItems = [
     { icon: <HomeIcon />, name: 'Home', link: '/' },
     { icon: <VideocamIcon />, name: 'Recording Library', link: '/recordings' },
-    { icon: <SettingsIcon />, name: 'Settings', link: '/settings' },
-  ];
-  const menuLinkItemsSupervisor = [
-    { icon: <HomeIcon />, name: 'Home', link: '/' },
-    { icon: <PersonIcon />, name: 'Agents', link: '/profile' },
-    { icon: <VideocamIcon />, name: 'Videos library', link: '/recordings' },
-    { icon: <SettingsIcon />, name: 'Metrics', link: '/settings' },
   ];
   const callActions = [
     { icon: <Link to="/rate"><CallEndIcon /></Link>, name: 'Hang up', onclick: () => { handleActiveCall(false); stopRecording(); } },

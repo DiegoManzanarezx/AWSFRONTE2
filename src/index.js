@@ -2,12 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import AppManager from './AppManager';
+import AppSupervisor from './AppSupervisor';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
+      {/*<AppManager/>*/}
+      {/*<AppSupervisor/>*/}
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
