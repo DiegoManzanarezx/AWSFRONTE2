@@ -1,10 +1,14 @@
 import React from 'react'
-import { Box, Chip, Typography, Button } from '@mui/material'
+
+import { Box, Chip, Typography, Button, Paper } from '@mui/material'
 import { green } from '@mui/material/colors';
+
 
 export const VideoInfo = () => {
 
   const tags = ["Solved", "To review", "Annoying user", "Impatient user", "Internet search", "Medium quality", "Search in previously solved problems", "Account error service", "Personal information within the video", "Review because of element in the recording not working"];
+
+
 
   return (
     <>
@@ -29,6 +33,7 @@ export const VideoInfo = () => {
       <input style={{ display: 'inline' }} />
       <Button variant="h3" gutterBottom sx={{ fontWeight: 'bold' }, { backgroundColor: "#1FC7FF" }}>Share video</Button>
       <br></br>
+
       <Typography variant="h7" gutterBottom sx={{ fontWeight: 'bold' }}>Related Tags</Typography>
       <Box sx={{ lineHeight: '45px', marginTop: '10px' }}>
         {tags.map(tag => (
@@ -37,6 +42,8 @@ export const VideoInfo = () => {
           </Box>
         ))}
       </Box>
+
     </>
   )
 }
+

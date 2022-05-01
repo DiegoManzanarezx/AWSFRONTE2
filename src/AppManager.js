@@ -24,6 +24,9 @@ import AgentRecordings from "./views/agentViews/AgentRecordings";
 import QuestionDB from "./views/agentViews/QuestionDB";
 import AgentSettings from "./views/agentViews/AgentSettings";
 import AdmSett from "./views/agentViews/AdmSett";
+import AgentFilter from "./views/agentViews/AgentFilter";
+import SupervisorFilter from "./views/agentViews/SupervisorFilter";
+
 
 // Icons
 import HomeIcon from '@mui/icons-material/Home';
@@ -56,7 +59,7 @@ export default function PermanentDrawerLeft() {
     const menuLinkItemsManagers = [
         { icon: <HomeIcon />, name: 'Home', link: '/' },
         { icon: <PersonIcon />, name: 'Agents', link: '/profile' },
-        { icon: <SupervisorAccountIcon />, name: 'Supervisors', link: '/profile' },
+        { icon: <SupervisorAccountIcon />, name: 'Supervisors', link: '/supervisorprofile' },
         { icon: <VideocamIcon />, name: 'Agents videos', link: '/recordings' },
         { icon: <SettingsIcon />, name: 'Video settings', link: '/settings' },
     ];
@@ -140,7 +143,8 @@ export default function PermanentDrawerLeft() {
                 <Toolbar />
                 <Routes>
                     <Route path="/" element={<AgentDashboard />} />
-                    <Route path="/profile" element={<AgentProfile />} />
+                    <Route path="/profile" element={<AgentFilter />} />
+                    <Route path="/supervisorprofile" element={<SupervisorFilter />} />
                     <Route path="/calls" element={<CallHistory />} />
                     <Route path="/settings" element={<AdmSett />} />
                     <Route path="/recordings" element={<AgentRecordings />}>

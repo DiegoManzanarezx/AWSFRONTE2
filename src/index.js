@@ -11,7 +11,8 @@ ReactDOM.render(
     <BrowserRouter>
       {/*<App/>*/}
       <AppManager />
-      {/*<AppSupervisor/>*/}
+      {/*<AppSupervisor />*/}
+
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
