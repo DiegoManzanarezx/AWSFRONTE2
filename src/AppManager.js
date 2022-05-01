@@ -58,7 +58,7 @@ export default function PermanentDrawerLeft() {
         { icon: <PersonIcon />, name: 'Agents', link: '/profile' },
         { icon: <SupervisorAccountIcon />, name: 'Supervisors', link: '/profile' },
         { icon: <VideocamIcon />, name: 'Videos library', link: '/recordings' },
-        { icon: <SettingsIcon />, name: 'Video settings', link: '/AdmSett' },
+        { icon: <SettingsIcon />, name: 'Video settings', link: '/settings' },
     ];
 
 
@@ -142,6 +142,7 @@ export default function PermanentDrawerLeft() {
                     <Route path="/" element={<AgentDashboard />} />
                     <Route path="/profile" element={<AgentProfile />} />
                     <Route path="/calls" element={<CallHistory />} />
+                    <Route path="/settings" element={<AdmSett />} />
                     <Route path="/recordings" element={<AgentRecordings />}>
                         <Route path=":recordingId" element={<AgentRecordings />} />
                     </Route>
