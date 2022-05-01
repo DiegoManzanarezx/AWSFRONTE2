@@ -9,8 +9,8 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
-      {/* <AppManager />*/}
+      {/*<App/>*/}
+      <AppManager />
       {/*<AppSupervisor/>*/}
     </BrowserRouter>
   </React.StrictMode>,

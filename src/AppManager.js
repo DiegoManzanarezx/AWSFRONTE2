@@ -23,6 +23,7 @@ import AgentProfile from "./views/agentViews/AgentProfile";
 import AgentRecordings from "./views/agentViews/AgentRecordings";
 import QuestionDB from "./views/agentViews/QuestionDB";
 import AgentSettings from "./views/agentViews/AgentSettings";
+import AdmSett from "./views/agentViews/AdmSett";
 
 // Icons
 import HomeIcon from '@mui/icons-material/Home';
@@ -57,7 +58,7 @@ export default function PermanentDrawerLeft() {
         { icon: <PersonIcon />, name: 'Agents', link: '/profile' },
         { icon: <SupervisorAccountIcon />, name: 'Supervisors', link: '/profile' },
         { icon: <VideocamIcon />, name: 'Videos library', link: '/recordings' },
-        { icon: <SettingsIcon />, name: 'Video settings', link: '/settings' },
+        { icon: <SettingsIcon />, name: 'Video settings', link: '/AdmSett' },
     ];
 
 
