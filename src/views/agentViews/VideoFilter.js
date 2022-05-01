@@ -1,5 +1,5 @@
 import React from 'react';
-import "../Assets/CSS/VideoFilter.css";
+import "./VideoFilter.css";
 
 class VideoFilter extends React.Component {
 
@@ -65,16 +65,6 @@ class VideoFilter extends React.Component {
 
         return(
                 <div>
-                    
-                    <div className='upperBox'>
-                            <h1>Videos</h1>
-                                <div className='searchBox'>
-                                    <input type="text" placeholder="Search.." name="search"/>
-                                    <button type="submit"><i class="fa fa-search"></i></button>   
-                                </div>
-                    </div>
-                    <div className='middleBox'></div>
-
                     <div className = 'VideoInfo'>
                         <ol>    
                             {
