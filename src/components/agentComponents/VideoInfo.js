@@ -26,10 +26,10 @@ export const VideoInfo = () => {
 
       <Typography variant='button' style={{ display: 'block' }}>Requested service</Typography>
       <Typography variant='body2' style={{ display: 'block' }} mb={4}>Account support</Typography>
-      <input />
-      <Chip variant='button' label={"Share video"} sx={{ backgroundColor: "#1FA9FF" }} ></Chip>
+      <input style={{ display: 'inline' }} />
+      <Button variant="h3" gutterBottom sx={{ fontWeight: 'bold' }, { backgroundColor: "#1FC7FF" }}>Share video</Button>
       <br></br>
-      <Button variant="h7" gutterBottom sx={{ fontWeight: 'bold' }}>Related Tags</Button>
+      <Typography variant="h7" gutterBottom sx={{ fontWeight: 'bold' }}>Related Tags</Typography>
       <Box sx={{ lineHeight: '45px', marginTop: '10px' }}>
         {tags.map(tag => (
           <Box sx={{ display: 'inline' }} mr={1}>

@@ -20,7 +20,7 @@ import ListItemText from '@mui/material/ListItemText';
 import AgentDashboard from "./views/agentViews/AgentDashboard";
 import CallHistory from "./views/agentViews/AgentCallsHistory";
 import AgentProfile from "./views/agentViews/AgentProfile";
-import AgentRecordings from "./views/agentViews/AgentRecordings";
+import AgentRecordingShared from "./views/agentViews/AgentRecordingShared";
 import QuestionDB from "./views/agentViews/QuestionDB";
 import AgentSettings from "./views/agentViews/AgentSettings";
 
@@ -55,7 +55,7 @@ export default function PermanentDrawerLeft() {
 
   const menuLinkItems = [
     { icon: <HomeIcon />, name: 'Home', link: '/' },
-    { icon: <VideocamIcon />, name: 'Recording Library', link: '/recordings' },
+    { icon: <VideocamIcon />, name: 'Videos Library', link: '/recordings' },
   ];
   const callActions = [
     { icon: <Link to="/rate"><CallEndIcon /></Link>, name: 'Hang up', onclick: () => { handleActiveCall(false); stopRecording(); } },
@@ -153,8 +153,8 @@ export default function PermanentDrawerLeft() {
           <Route path="/" element={<AgentDashboard />} />
           <Route path="/profile" element={<AgentProfile />} />
           <Route path="/calls" element={<CallHistory />} />
-          <Route path="/recordings" element={<AgentRecordings />}>
-            <Route path=":recordingId" element={<AgentRecordings />} />
+          <Route path="/recordings" element={<AgentRecordingShared />}>
+            <Route path=":recordingId" element={<AgentRecordingShared />} />
           </Route>
           <Route path="/questiondb" element={<QuestionDB />} />
           <Route path="/settings" element={<AgentSettings />} />

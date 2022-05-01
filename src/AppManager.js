@@ -57,7 +57,7 @@ export default function PermanentDrawerLeft() {
         { icon: <HomeIcon />, name: 'Home', link: '/' },
         { icon: <PersonIcon />, name: 'Agents', link: '/profile' },
         { icon: <SupervisorAccountIcon />, name: 'Supervisors', link: '/profile' },
-        { icon: <VideocamIcon />, name: 'Videos library', link: '/recordings' },
+        { icon: <VideocamIcon />, name: 'Agents videos', link: '/recordings' },
         { icon: <SettingsIcon />, name: 'Video settings', link: '/settings' },
     ];
 
