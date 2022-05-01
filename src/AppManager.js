@@ -23,6 +23,7 @@ import AgentProfile from "./views/agentViews/AgentProfile";
 import AgentRecordings from "./views/agentViews/AgentRecordings";
 import QuestionDB from "./views/agentViews/QuestionDB";
 import AgentSettings from "./views/agentViews/AgentSettings";
+import AdmSett from "./views/agentViews/AdmSett";
 
 // Icons
 import HomeIcon from '@mui/icons-material/Home';
@@ -141,6 +142,7 @@ export default function PermanentDrawerLeft() {
                     <Route path="/" element={<AgentDashboard />} />
                     <Route path="/profile" element={<AgentProfile />} />
                     <Route path="/calls" element={<CallHistory />} />
+                    <Route path="/settings" element={<AdmSett />} />
                     <Route path="/recordings" element={<AgentRecordings />}>
                         <Route path=":recordingId" element={<AgentRecordings />} />
                     </Route>
