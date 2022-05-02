@@ -66,7 +66,7 @@ class Sharedvideos extends React.Component{
         <div>
 
             <div className='upperBox'>
-                <h1>Videos Compartidos</h1>
+                <h1>Shared Videos</h1>
                 <div className='searchBox'>
                     <input type="text" placeholder="Search.." name="search" />
                     <button type="submit"><i class="fa fa-search"></i></button>
