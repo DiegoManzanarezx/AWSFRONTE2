@@ -7,11 +7,11 @@
 
 #### WIP:
 
-- Team 1 frontend:
+- Team 1 front-end 2:
     - Manager views
     - Supervisor views
 
-- Team 2 frontend:
+- Team 2 front-end 1:
    - Agent views
 
 ***
