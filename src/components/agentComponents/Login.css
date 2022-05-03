@@ -1,0 +1,35 @@
+.Login .icon{
+    font-size: 1800%;
+    padding-top: 3%;
+    height: 40%;
+    width: 23%;
+    color: rgb(62, 110, 155);
+    background-color: rgb(147, 191, 233);
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.Login .centeredTitle h1{
+    color: black;
+    position: fixed;
+    top: 55%;
+    left: 29%;
+    transform: translate(-50%, -50%);
+}
+
+.centeredInputs {
+    position: fixed;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.centeredButtons {
+    position: fixed;
+    top: 82%;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
+}

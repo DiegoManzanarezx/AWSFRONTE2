@@ -41,6 +41,8 @@ import PauseIcon from '@mui/icons-material/Pause';
 import StopIcon from '@mui/icons-material/Stop';
 import RateCall from './views/agentViews/RateCall';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import LogoutIcon from '@mui/icons-material/Logout';
+import Home from './components/agentComponents/Home';
 
 const drawerWidth = 240;
 
@@ -54,8 +56,9 @@ export default function PermanentDrawerLeft() {
   const { status, startRecording, stopRecording, mediaBlobUrl } = useReactMediaRecorder({ audio: true, screen: true });
 
   const menuLinkItems = [
-    { icon: <HomeIcon />, name: 'Home', link: '/' },
-    { icon: <VideocamIcon />, name: 'Recording Library', link: '/recordings' },
+    { icon: <HomeIcon />, name: 'Home', link: '/agent/' },
+    { icon: <VideocamIcon />, name: 'Recording Library', link: '/agent/recordings' },
+    
   ];
   const callActions = [
     { icon: <Link to="/rate"><CallEndIcon /></Link>, name: 'Hang up', onclick: () => { handleActiveCall(false); stopRecording(); } },
@@ -142,6 +145,24 @@ export default function PermanentDrawerLeft() {
             onClose={handleClose}
           />
 
+
+
+
+            <CustomLink sx={{
+                position: "fixed",
+                bottom: "0",
+                marginBottom: "5%"
+            }} to='/'>
+              <ListItem button>
+                <ListItemIcon >
+                  <LogoutIcon />
+                </ListItemIcon>
+                <ListItemText primary="Logout"  />
+              </ListItem>
+            </CustomLink>
+
+
+
         </List>
       </Drawer>
       <Box
@@ -159,6 +180,7 @@ export default function PermanentDrawerLeft() {
           <Route path="/questiondb" element={<QuestionDB />} />
           <Route path="/settings" element={<AgentSettings />} />
           <Route path="/rate" element={<RateCall blobUrl={mediaBlobUrl} />} />
+          <Route path="/" element={<Home />} />
         </Routes>
 
         {activeCall &&

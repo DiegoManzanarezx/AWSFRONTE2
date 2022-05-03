@@ -26,6 +26,10 @@ import AgentSettings from "./views/agentViews/AgentSettings";
 
 import VideoFilter from "./views/agentViews/VideoFilter";
 import AgentFilter from "./views/agentViews/AgentFilter";
+import AgentStatistics from './views/agentViews/AgentStatistics';
+
+import Snackbar from '@mui/material/Snackbar';
+import Slide from '@mui/material/Slide';
 
 // Icons
 import HomeIcon from '@mui/icons-material/Home';
@@ -44,6 +48,9 @@ import PauseIcon from '@mui/icons-material/Pause';
 import StopIcon from '@mui/icons-material/Stop';
 import RateCall from './views/agentViews/RateCall';
 import AlignVerticalBottomIcon from '@mui/icons-material/AlignVerticalBottom';
+import LogoutIcon from '@mui/icons-material/Logout';
+import Home from './components/agentComponents/Home';
+import GlobalStadistics from './views/agentViews/GlobalStadistics';
 
 const drawerWidth = 240;
 
@@ -56,11 +63,10 @@ export default function PermanentDrawerLeft() {
 
     const { status, startRecording, stopRecording, mediaBlobUrl } = useReactMediaRecorder({ audio: true, screen: true });
     const menuLinkItemsSupervisor = [
-        { icon: <HomeIcon />, name: 'Home', link: '/' },
-        { icon: <PersonIcon />, name: 'Agents', link: '/profile' },
-        { icon: <VideocamIcon />, name: 'Videos library', link: '/recordings' },
-        { icon: <AlignVerticalBottomIcon />, name: 'Metrics', link: '/' }
-
+        { icon: <HomeIcon />, name: 'Home', link: '/supervisor/' },
+        { icon: <PersonIcon />, name: 'Agents', link: '/supervisor/agents' },
+        { icon: <VideocamIcon />, name: 'Videos library', link: '/supervisor/videos' },
+        { icon: <AlignVerticalBottomIcon />, name: 'Metrics', link: '/supervisor/globalstadistics' },
     ];
 
 
@@ -88,6 +94,37 @@ export default function PermanentDrawerLeft() {
     const handleActiveCall = value => {
         setActiveCall(value);
     }
+
+
+    //LogoutEffect
+    function TransitionLeft(props) {
+        return <Slide {...props} direction="left" />;
+      }
+      
+      function TransitionUp(props) {
+        return <Slide {...props} direction="up" />;
+      }
+      
+      function TransitionRight(props) {
+        return <Slide {...props} direction="right" />;
+      }
+      
+      function TransitionDown(props) {
+        return <Slide {...props} direction="down" />;
+      }
+      
+  
+        const [openLogout, setOpenLogout] = React.useState(false);
+        const [transition, setTransition] = React.useState(undefined);
+      
+        const handleClickLogout = (Transition) => () => {
+          setTransition(() => Transition);
+          setOpenLogout(true);
+        };
+      
+        const handleCloseLogout = () => {
+            setOpenLogout(false);
+        };
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -120,7 +157,7 @@ export default function PermanentDrawerLeft() {
 
                     {menuLinkItemsSupervisor.map((item) => (
                         <CustomLink to={item.link}>
-                            <ListItem button>
+                            <ListItem button onClick={handleClickLogout(TransitionRight)}>
                                 <ListItemIcon>
                                     {item.icon}
                                 </ListItemIcon>
@@ -132,6 +169,28 @@ export default function PermanentDrawerLeft() {
 
 
 
+            <CustomLink sx={{
+                position: "fixed",
+                bottom: "0",
+                marginBottom: "5%"
+            }} to='/'>
+              <ListItem button >
+                <ListItemIcon >
+                  <LogoutIcon />
+                </ListItemIcon>
+                <ListItemText primary="Logout"  />
+              </ListItem>
+            </CustomLink>
+
+
+            <Snackbar
+        open={openLogout}
+        onClose={handleCloseLogout}
+        TransitionComponent={transition}
+        message="New employee added"
+        key={transition ? transition.name : ''}
+      />
+
 
                 </List>
             </Drawer>
@@ -140,17 +199,16 @@ export default function PermanentDrawerLeft() {
                 sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
             >
                 <Toolbar />
-                <Routes>
-                    <Route path="/" element={<AgentDashboard />} />
-                    <Route path="/profile" element={<AgentFilter />} />
-                    <Route path="/calls" element={<VideoFilter />} />
-                    <Route path="/recordings" element={<AgentRecordings />}>
-                        <Route path=":recordingId" element={<AgentRecordings />} />
-                    </Route>
-                    <Route path="/questiondb" element={<QuestionDB />} />
-                    <Route path="/settings" element={<AgentSettings />} />
-                    <Route path="/rate" element={<RateCall blobUrl={mediaBlobUrl} />} />
-                </Routes>
+                    <Routes>
+                        <Route path="/" element={<AgentDashboard />} />
+                        <Route path="/agents" element={<AgentFilter />} />
+                        <Route path="/agents/:agentId" element={<AgentStatistics />} />
+                        <Route path="/videos" element={<AgentRecordings />}>
+                            <Route path=":recordingId" element={<AgentRecordings />} />
+                        </Route>
+                        <Route path="/globalstadistics" element={<GlobalStadistics />} />
+                        <Route path="/" element={<Home />} />
+                    </Routes>
 
 
             </Box>

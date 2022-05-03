@@ -1,19 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import App from './App';
 import AppManager from './AppManager';
 import AppSupervisor from './AppSupervisor';
 import * as serviceWorker from './serviceWorker';
+import AgentFilter from './views/agentViews/AgentFilter';
+import AgentRecordings from './views/agentViews/AgentRecordings';
+import AgentSettings from './views/agentViews/AgentSettings';
+import AgentStatistics from './views/agentViews/AgentStatistics';
+import Home from "./components/agentComponents/Home";
 
 ReactDOM.render(
-  <React.StrictMode>
     <BrowserRouter>
-      {/*<App/>*/}
-      <AppManager />
-      {/*<AppSupervisor/>*/}
-    </BrowserRouter>
-  </React.StrictMode>,
+      <Routes>
+        <Route path = "/" element = {<Home/>}/>
+        <Route path = "/agent/*" element = {<App/>}/>
+        <Route path = "/supervisor/*" element = {<AppSupervisor/>}/>
+        {/*<Route path = "/manager" element = {<AppManager/>}/>*/}
+      </Routes>
+    </BrowserRouter>,
   document.getElementById('root')
 );
 

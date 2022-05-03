@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./AgentFilter.css";
 
 import List from '@mui/material/List';
@@ -9,10 +9,22 @@ import Avatar from '@mui/material/Avatar';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
+
 import { Pagination, Grid, Paper, Typography } from '@mui/material';
 import { red } from '@mui/material/colors';
 import { Link, useParams } from 'react-router-dom';
 import { VideoInfo } from '../../components/agentComponents/VideoInfo';
+
+
+
+import Box from '@mui/material/Box';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
+import TextField from '@mui/material/TextField';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import SearchIcon from '@mui/icons-material/Search';
 
 let clientes = [
     {
@@ -43,71 +55,75 @@ let clientes = [
         nombre: 'Luis Orozco',
         id: '345603',
         role: 'Agent'
-    },                
+    },
+    
+    {
+        nombre: 'Luis Pineda',
+        id: '345609',
+        role: 'Agent'
+    }, 
 ];
 
-const videos = [
-    { id: 1, title: "Video 1", date: "Feb 08, 2022" },
-    { id: 2, title: "Video 2", date: "Aug   27, 2022" },
-    { id: 3, title: "Video 3", date: "Oct 23, 2022" },
-    { id: 4, title: "Video 4", date: "Nov 16, 2022" },
-    { id: 5, title: "Video 5", date: "Nov 16, 2022" },
-    { id: 6, title: "Video 6", date: "Nov 16, 2022" },
-    { id: 7, title: "Video 7", date: "Nov 16, 2022" },
-    { id: 8, title: "Video 8", date: "Nov 16, 2022" },
-  ];
 
 
   
 
 export default function AgentFilter() {
-    const { recordingId } = useParams();
+    const [list, setList] = useState("");
         return(
 
                 <div>
 
-                   {/* <div className = 'agentsInfo'>
-                        <ol>    
-                            {
-                                clientes.map((agentes, iterador) => {
-                                    return(
-                                        <li className = 'agents' key = {iterador}>
-                                            <i class='bx bx-group icon' ></i>
-                                             
-                                                <Link to={`/agents/${agentes.id}`}>
-                                                    <div className='name'>
-                                                        {agentes.nombre}
-                                                    </div>
-                                                </Link>
-                                                
-                                                -
-                                                <div className='id'>
-                                                    {agentes.id}
-                                                </div>
-                                            <br></br>
-                                            <div className='role'>
-                                            {agentes.role}
-                                            </div>
-                                            <br></br>
-                                        </li>
-                                    );
-                                })
-                            }
-                        </ol>    
-                    </div>
-
-                */}
-
-
-                    <Grid item xs={recordingId !== undefined ? 4 : 12}>
+                    <Grid>
+                         
         <Typography variant="h5" gutterBottom>
-          Agent list
+          Agent list       
         </Typography>
-        <List sx={{ width: '100%', maxWidth: '100%', bgcolor: 'background.paper' }}>
-          {
+
+        <br></br>
+     
+        <Box sx={{ display: 'flex', alignItems: 'flex-end'}}>
+        <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+        <TextField id="input-with-sx" label="Search agent" variant="standard" onChange={(event) => {
+                setList(event.target.value);
+            }}/>
+      </Box>
+
+        <br></br>
+        
+        
+        <List sx={{ width: '100%', maxWidth: '100%', bgcolor: 'background.paper', borderBottom:'15px', borderColor:'black'}}>
+            {clientes.filter((item) => {
+                if(list == ""){
+                    return item;
+                }else if(item.nombre.toLocaleLowerCase().startsWith(list.toLocaleLowerCase())){
+                    return item;
+                }
+            }).map((item) => (
+                <div key={item.nombre} style={{border:"1px solid grey"}}>
+                    <Link to={`/supervisor/agents/${item.id}`} style={{ textDecoration: 'none' }}>
+                  <ListItem>
+                    <ListItemAvatar >
+                      <Avatar>
+                        <AccountCircleIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary={item.nombre} secondary={item.id} sx={{color:'#1976D2'}}/>
+                    <ListItemAvatar>
+                        <MoreVertIcon/>
+                    </ListItemAvatar>
+                    
+                  </ListItem>
+                </Link>
+
+                </div>
+            ))}
+
+
+         {/* {
             clientes.map(cliente => {
               return(
-                <Link to={`/recordings/${cliente.id}`} style={{ textDecoration: 'none' }}>
+                <Link to={`/profile/${cliente.id}`} style={{ textDecoration: 'none' }}>
                   <ListItem>
                     <ListItemAvatar>
                       <Avatar>
@@ -124,8 +140,10 @@ export default function AgentFilter() {
               )
             })
           }
+
+        */}
         </List>
-        <Pagination count={10} />
+        
       </Grid>
 
 

@@ -20,11 +20,7 @@ h2{
     border-color: black;
 }
 
-input[type=text] {
-    padding: 6px;
-    font-size: 17px;
-    border: none;
-}
+
 
 .id{
     color: red;
@@ -65,7 +61,6 @@ button:hover {
 .searchBox{
     margin-right: 5%;
     float: right;
-    color: black;
 }
 
 
@@ -79,5 +74,9 @@ button:hover {
     justify-content: center;
     font-size: 360%;
     color: black;
+}
+
+.chart{
+    width: 720px;
 }
 
