@@ -137,8 +137,7 @@ export const VideoInfo = () => {
 
       <Typography variant='button' style={{ display: 'block' }}>Requested service</Typography>
       <Typography variant='body2' style={{ display: 'block' }} mb={4}>Account support</Typography>
-      <input style={{ display: 'inline' }} />
-      <Button variant="h3" gutterBottom sx={{ fontWeight: 'bold', backgroundColor: "#1FC7FF" }}>Share video</Button>
+      
       <br></br>
 
       <Typography variant="h7" gutterBottom sx={{ fontWeight: 'bold' }}>Related Tags</Typography>

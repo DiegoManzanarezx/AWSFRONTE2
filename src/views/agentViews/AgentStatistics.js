@@ -85,7 +85,7 @@ export default function AgentStatistics(){
 
                     <br></br>
                     <br></br>
-                    
+
                     <BarChart />
                     
                     <br></br>
