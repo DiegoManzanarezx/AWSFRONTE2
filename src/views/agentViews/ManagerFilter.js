@@ -17,35 +17,17 @@ import Button from '@mui/material/Button';
 
 let supervisores = [
     {
-        nombre: 'Roberto Almero',
-        id: '123456',
-        role: 'Supervisor'
+        nombre: 'Devanni Regina',
+        id: '987654',
+        role: 'Manager'
     },
-
     {
-        nombre: 'Daniel Javier',
-        id: '654321',
-        role: 'Supervisor'
-    },
-
-    {
-        nombre: 'Fernanda Arraza',
-        id: '615243',
-        role: 'Supervisor'
+        nombre: 'Daniel Elenor',
+        id: '184764',
+        role: 'Manager'
     },
 
 
-];
-
-const videos = [
-    { id: 1, title: "Video 1", date: "Feb 08, 2022" },
-    { id: 2, title: "Video 2", date: "Aug   27, 2022" },
-    { id: 3, title: "Video 3", date: "Oct 23, 2022" },
-    { id: 4, title: "Video 4", date: "Nov 16, 2022" },
-    { id: 5, title: "Video 5", date: "Nov 16, 2022" },
-    { id: 6, title: "Video 6", date: "Nov 16, 2022" },
-    { id: 7, title: "Video 7", date: "Nov 16, 2022" },
-    { id: 8, title: "Video 8", date: "Nov 16, 2022" },
 ];
 
 
@@ -92,28 +74,26 @@ export default function AgentFilter() {
 
             <Grid item xs={recordingId !== undefined ? 4 : 12}>
                 <Typography variant="h5" gutterBottom>
-                    Supervisor list
+                    Managers list
                     <Button variant="contained">Add+</Button>
-
                 </Typography>
                 <List sx={{ width: '100%', maxWidth: '100%', bgcolor: 'background.paper' }}>
                     {
                         supervisores.map(supervisor => {
                             return (
-                                <Link to={`/recordings/${supervisor.id}`} style={{ textDecoration: 'none' }}>
-                                    <ListItem>
-                                        <ListItemAvatar>
-                                            <Avatar>
-                                                <AccountCircleIcon />
-                                            </Avatar>
-                                        </ListItemAvatar>
-                                        <ListItemText primary={supervisor.nombre} secondary={supervisor.id} />
-                                        <ListItemAvatar>
-                                            <MoreVertIcon />
-                                        </ListItemAvatar>
 
-                                    </ListItem>
-                                </Link>
+                                <ListItem>
+                                    <ListItemAvatar>
+                                        <Avatar>
+                                            <AccountCircleIcon />
+                                        </Avatar>
+                                    </ListItemAvatar>
+                                    <ListItemText primary={supervisor.nombre} secondary={supervisor.id} />
+                                    <ListItemAvatar>
+                                        <MoreVertIcon />
+                                    </ListItemAvatar>
+
+                                </ListItem>
                             )
                         })
                     }

@@ -26,6 +26,7 @@ import AgentSettings from "./views/agentViews/AgentSettings";
 import AdmSett from "./views/agentViews/AdmSett";
 import AgentFilter from "./views/agentViews/AgentFilter";
 import SupervisorFilter from "./views/agentViews/SupervisorFilter";
+import ManagerFilter from "./views/agentViews/ManagerFilter";
 
 
 // Icons
@@ -45,6 +46,8 @@ import PauseIcon from '@mui/icons-material/Pause';
 import StopIcon from '@mui/icons-material/Stop';
 import RateCall from './views/agentViews/RateCall';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+
 
 const drawerWidth = 240;
 
@@ -60,6 +63,7 @@ export default function PermanentDrawerLeft() {
         { icon: <HomeIcon />, name: 'Home', link: '/' },
         { icon: <PersonIcon />, name: 'Agents', link: '/profile' },
         { icon: <SupervisorAccountIcon />, name: 'Supervisors', link: '/supervisorprofile' },
+        { icon: <AccountBoxIcon />, name: 'Managers', link: '/managerprofile' },
         { icon: <VideocamIcon />, name: 'Agents videos', link: '/recordings' },
         { icon: <SettingsIcon />, name: 'Video settings', link: '/settings' },
     ];
@@ -145,6 +149,7 @@ export default function PermanentDrawerLeft() {
                     <Route path="/" element={<AgentDashboard />} />
                     <Route path="/profile" element={<AgentFilter />} />
                     <Route path="/supervisorprofile" element={<SupervisorFilter />} />
+                    <Route path="/managerprofile" element={<ManagerFilter />} />
                     <Route path="/calls" element={<CallHistory />} />
                     <Route path="/settings" element={<AdmSett />} />
                     <Route path="/recordings" element={<AgentRecordings />}>

@@ -25,102 +25,106 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
+import Button from '@mui/material/Button';
+
 
 let clientes = [
-    {
-        nombre: 'Angel Bosquez',
-        id: '345605',
-        role: 'Agent'
-    },
+  {
+    nombre: 'Angel Bosquez',
+    id: '345605',
+    role: 'Agent'
+  },
 
-    {
-        nombre: 'Diego Hernández',
-        id: '345604',
-        role: 'Agent'
-    },
+  {
+    nombre: 'Diego Hernández',
+    id: '345604',
+    role: 'Agent'
+  },
 
-    {
-        nombre: 'Fernanda Cazado',
-        id: '345602',
-        role: 'Agent'
-    },
+  {
+    nombre: 'Fernanda Cazado',
+    id: '345602',
+    role: 'Agent'
+  },
 
-    {
-        nombre: 'José Pedraza',
-        id: '345601',
-        role: 'Agent'
-    },
+  {
+    nombre: 'José Pedraza',
+    id: '345601',
+    role: 'Agent'
+  },
 
-    {
-        nombre: 'Luis Orozco',
-        id: '345603',
-        role: 'Agent'
-    },
-    
-    {
-        nombre: 'Luis Pineda',
-        id: '345609',
-        role: 'Agent'
-    }, 
+  {
+    nombre: 'Luis Orozco',
+    id: '345603',
+    role: 'Agent'
+  },
+
+  {
+    nombre: 'Luis Pineda',
+    id: '345609',
+    role: 'Agent'
+  },
 ];
 
 
 
-  
+
 
 export default function AgentFilter() {
-    const [list, setList] = useState("");
-        return(
+  const [list, setList] = useState("");
+  return (
 
-                <div>
+    <div>
 
-                    <Grid>
-                         
+      <Grid>
+
         <Typography variant="h5" gutterBottom>
-          Agent list       
+          Agent list
+          <Button variant="contained">Add+</Button>
+
         </Typography>
 
         <br></br>
-     
-        <Box sx={{ display: 'flex', alignItems: 'flex-end'}}>
-        <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-        <TextField id="input-with-sx" label="Search agent" variant="standard" onChange={(event) => {
-                setList(event.target.value);
-            }}/>
-      </Box>
+
+        <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+          <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+          <TextField id="input-with-sx" label="Search agent" variant="standard" onChange={(event) => {
+            setList(event.target.value);
+          }} />
+        </Box>
 
         <br></br>
-        
-        
-        <List sx={{ width: '100%', maxWidth: '100%', bgcolor: 'background.paper', borderBottom:'15px', borderColor:'black'}}>
-            {clientes.filter((item) => {
-                if(list == ""){
-                    return item;
-                }else if(item.nombre.toLocaleLowerCase().startsWith(list.toLocaleLowerCase())){
-                    return item;
-                }
-            }).map((item) => (
-                <div key={item.nombre} style={{border:"1px solid grey"}}>
-                    <Link to={`/supervisor/agents/${item.id}`} style={{ textDecoration: 'none' }}>
-                  <ListItem>
-                    <ListItemAvatar >
-                      <Avatar>
-                        <AccountCircleIcon />
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText primary={item.nombre} secondary={item.id} sx={{color:'#1976D2'}}/>
-                    <ListItemAvatar>
-                        <MoreVertIcon/>
-                    </ListItemAvatar>
-                    
-                  </ListItem>
-                </Link>
-
-                </div>
-            ))}
 
 
-         {/* {
+        <List sx={{ width: '100%', maxWidth: '100%', bgcolor: 'background.paper', borderBottom: '15px', borderColor: 'black' }}>
+          {clientes.filter((item) => {
+            if (list == "") {
+              return item;
+            } else if (item.nombre.toLocaleLowerCase().startsWith(list.toLocaleLowerCase())) {
+              return item;
+            }
+          }).map((item) => (
+            <div key={item.nombre} style={{ border: "1px solid grey" }}>
+              <Link to={`/supervisor/agents/${item.id}`} style={{ textDecoration: 'none' }}>
+                <ListItem>
+                  <ListItemAvatar >
+                    <Avatar>
+                      <AccountCircleIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary={item.nombre} secondary={item.id} sx={{ color: '#1976D2' }} />
+                  <ListItemAvatar>
+                    <MoreVertIcon />
+                  </ListItemAvatar>
+
+                </ListItem>
+              </Link>
+
+            </div>
+          ))}
+
+
+          {/* {
             clientes.map(cliente => {
               return(
                 <Link to={`/profile/${cliente.id}`} style={{ textDecoration: 'none' }}>
@@ -143,10 +147,10 @@ export default function AgentFilter() {
 
         */}
         </List>
-        
+
       </Grid>
 
 
-                </div>
-        );
+    </div>
+  );
 }
