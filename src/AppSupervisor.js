@@ -25,7 +25,7 @@ import QuestionDB from "./views/agentViews/QuestionDB";
 import AgentSettings from "./views/agentViews/AgentSettings";
 
 import VideoFilter from "./views/agentViews/VideoFilter";
-import AgentFilter from "./views/agentViews/AgentFilter";
+import AgentFilterSupervisor from "./views/agentViews/AgentFilterSupervisor";
 import AgentStatistics from './views/agentViews/AgentStatistics';
 
 import Snackbar from '@mui/material/Snackbar';
@@ -99,32 +99,32 @@ export default function PermanentDrawerLeft() {
     //LogoutEffect
     function TransitionLeft(props) {
         return <Slide {...props} direction="left" />;
-      }
-      
-      function TransitionUp(props) {
+    }
+
+    function TransitionUp(props) {
         return <Slide {...props} direction="up" />;
-      }
-      
-      function TransitionRight(props) {
+    }
+
+    function TransitionRight(props) {
         return <Slide {...props} direction="right" />;
-      }
-      
-      function TransitionDown(props) {
+    }
+
+    function TransitionDown(props) {
         return <Slide {...props} direction="down" />;
-      }
-      
-  
-        const [openLogout, setOpenLogout] = React.useState(false);
-        const [transition, setTransition] = React.useState(undefined);
-      
-        const handleClickLogout = (Transition) => () => {
-          setTransition(() => Transition);
-          setOpenLogout(true);
-        };
-      
-        const handleCloseLogout = () => {
-            setOpenLogout(false);
-        };
+    }
+
+
+    const [openLogout, setOpenLogout] = React.useState(false);
+    const [transition, setTransition] = React.useState(undefined);
+
+    const handleClickLogout = (Transition) => () => {
+        setTransition(() => Transition);
+        setOpenLogout(true);
+    };
+
+    const handleCloseLogout = () => {
+        setOpenLogout(false);
+    };
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -169,27 +169,27 @@ export default function PermanentDrawerLeft() {
 
 
 
-            <CustomLink sx={{
-                position: "fixed",
-                bottom: "0",
-                marginBottom: "5%"
-            }} to='/'>
-              <ListItem button >
-                <ListItemIcon >
-                  <LogoutIcon />
-                </ListItemIcon>
-                <ListItemText primary="Logout"  />
-              </ListItem>
-            </CustomLink>
+                    <CustomLink sx={{
+                        position: "fixed",
+                        bottom: "0",
+                        marginBottom: "5%"
+                    }} to='/'>
+                        <ListItem button >
+                            <ListItemIcon >
+                                <LogoutIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Logout" />
+                        </ListItem>
+                    </CustomLink>
 
 
-            <Snackbar
-        open={openLogout}
-        onClose={handleCloseLogout}
-        TransitionComponent={transition}
-        message="New employee added"
-        key={transition ? transition.name : ''}
-      />
+                    <Snackbar
+                        open={openLogout}
+                        onClose={handleCloseLogout}
+                        TransitionComponent={transition}
+                        message="New employee added"
+                        key={transition ? transition.name : ''}
+                    />
 
 
                 </List>
@@ -199,16 +199,16 @@ export default function PermanentDrawerLeft() {
                 sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
             >
                 <Toolbar />
-                    <Routes>
-                        <Route path="/" element={<AgentDashboard />} />
-                        <Route path="/agents" element={<AgentFilter />} />
-                        <Route path="/agents/:agentId" element={<AgentStatistics />} />
-                        <Route path="/videos" element={<AgentRecordings />}>
-                            <Route path=":recordingId" element={<AgentRecordings />} />
-                        </Route>
-                        <Route path="/globalstadistics" element={<GlobalStadistics />} />
-                        <Route path="/" element={<Home />} />
-                    </Routes>
+                <Routes>
+                    <Route path="/" element={<AgentDashboard />} />
+                    <Route path="/agents" element={<AgentFilterSupervisor />} />
+                    <Route path="/agents/:agentId" element={<AgentStatistics />} />
+                    <Route path="/videos" element={<AgentRecordings />}>
+                        <Route path=":recordingId" element={<AgentRecordings />} />
+                    </Route>
+                    <Route path="/globalstadistics" element={<GlobalStadistics />} />
+                    <Route path="/" element={<Home />} />
+                </Routes>
 
 
             </Box>
