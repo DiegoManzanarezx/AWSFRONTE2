@@ -120,24 +120,27 @@ export const VideoInfo = () => {
   return (
     <>
       <Typography variant="h5" mb={3}>Video information</Typography>
-      <Typography variant='button' style={{display: 'block'}}>Date</Typography>
-      <Typography variant='body2' style={{display: 'block'}} gutterBottom>26/04/22</Typography>
+      <Typography variant='button' style={{ display: 'block' }}>Date</Typography>
+      <Typography variant='body2' style={{ display: 'block' }} gutterBottom>26/04/22</Typography>
 
-      <Typography variant='button' style={{display: 'block'}}>Agent ID</Typography>
-      <Typography variant='body2' style={{display: 'block'}} gutterBottom>21453</Typography>
+      <Typography variant='button' style={{ display: 'block' }}>Agent ID</Typography>
+      <Typography variant='body2' style={{ display: 'block' }} gutterBottom>21453</Typography>
 
-      <Typography variant='button' style={{display: 'block'}}>Length</Typography>
-      <Typography variant='body2' style={{display: 'block'}} mb={4}>20 minutes</Typography>
+      <Typography variant='button' style={{ display: 'block' }}>Length</Typography>
+      <Typography variant='body2' style={{ display: 'block' }} mb={4}>20 minutes</Typography>
 
-      <Typography variant='button' style={{display: 'block'}}>User ID</Typography>
-      <Typography variant='body2' style={{display: 'block'}} gutterBottom>65433</Typography>
+      <Typography variant='button' style={{ display: 'block' }}>User ID</Typography>
+      <Typography variant='body2' style={{ display: 'block' }} gutterBottom>65433</Typography>
 
-      <Typography variant='button' style={{display: 'block'}}>User Name</Typography>
-      <Typography variant='body2' style={{display: 'block'}} gutterBottom>Karen Macías</Typography>
+      <Typography variant='button' style={{ display: 'block' }}>User Name</Typography>
+      <Typography variant='body2' style={{ display: 'block' }} gutterBottom>Karen Macías</Typography>
 
-      <Typography variant='button' style={{display: 'block'}}>Requested service</Typography>
-      <Typography variant='body2' style={{display: 'block'}} mb={4}>Account support</Typography>
-        
+      <Typography variant='button' style={{ display: 'block' }}>Requested service</Typography>
+      <Typography variant='body2' style={{ display: 'block' }} mb={4}>Account support</Typography>
+      <input style={{ display: 'inline' }} />
+      <Button variant="h3" gutterBottom sx={{ fontWeight: 'bold', backgroundColor: "#1FC7FF" }}>Share video</Button>
+      <br></br>
+
       <Typography variant="h7" gutterBottom sx={{ fontWeight: 'bold' }}>Related Tags</Typography>
 
       <IconButton variant="filled" aria-label="plus" size="large" sx={{bgcolor:'#E39EE9'}}
@@ -249,3 +252,4 @@ export const VideoInfo = () => {
     </>
   )
 }
+
