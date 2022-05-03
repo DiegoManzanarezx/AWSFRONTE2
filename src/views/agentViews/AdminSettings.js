@@ -1,63 +1,94 @@
-import React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import * as React from 'react';
+import SaveIcon from '@mui/icons-material/Save';
+import LoadingButton from '@mui/lab/LoadingButton';
+import { Container,Switch, FormControlLabel, Typography, Box, TextField, ToggleButton, ToggleButtonGroup} from '@mui/material';
 
+function AdminSettings() {
 
+  const [alignment, setAlignment] = React.useState('web');
 
-class AdminSettings extends React.Component {
+  const handleChange = (
+    event: React.MouseEvent<HTMLElement>,
+    newAlignment: string,
+  ) => {
+    setAlignment(newAlignment);
+  };
 
-    render() {
+  const [loading, setLoading] = React.useState(false);
+  function handleClick() {
+    setLoading(true);
+  }
+  return (
+    <>
+    <Typography variant="h3" gutterBottom>
+      Recording settings
+    </Typography>
+    <Typography variant="h6">
+      Versiooon
+    </Typography>
+    <Typography variant="body2">
+      2
+    </Typography>
+    <Typography variant="h6">
+      ClientID
+    </Typography>
+    <Typography variant="body2">
+      1200
+    </Typography>
+    <Typography variant="h6">
+      Minimum call time
+    </Typography>
+    <Box
+      component="form"
+      sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off">
+      <TextField label="Minutes" color="primary" focused />
+    </Box>
+    <Typography variant="h6">
+      Survey for the agent
+    </Typography>
 
-        return (
+    <ToggleButtonGroup
+      color="primary"
+      value={alignment}
+      exclusive
+      onChange={handleChange}
+    >
+      <ToggleButton value="yes">Enabled</ToggleButton>
+      <ToggleButton value="no">Disabled</ToggleButton>
+    </ToggleButtonGroup>
 
-            <div className='conf-settings'>
-
-                <div className='upperBox'>
-                    <h1>Amazon RSH</h1>
-                    <div className='searchBox'>
-                        <input type="text" placeholder="Search.." name="search" />
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-                <div className='middleBox'></div>
-
-                <div className='centerTitle'>
-                    <h1 className='Rs'>Recording settings</h1>
-                </div>
-
-
-                <div className='centeredInputs'>
-                    <h3>Minimum call time</h3>
-                    <Box
-                        component="form"
-                        sx={{
-                            '& > :not(style)': { m: 1, width: '25ch' },
-                        }}
-                        noValidate
-                        autoComplete="off">
-                        <TextField label="Minutes" color="primary" focused />
-                    </Box>
-                    <b></b>
-                    <h3>Maximum call time</h3>
-                    <Box
-                        component="form"
-                        sx={{
-                            '& > :not(style)': { m: 1, width: '25ch' },
-                        }}
-                        noValidate
-                        autoComplete="off">
-                        <TextField label="Minutes" color="primary" focused />
-                    </Box>
-                </div>
-
-                <div className='rightButton'>
-                    <Button variant="contained">Save</Button>
-                </div>
-            </div>
-        );
-    }
+    <Box>
+      <FormControlLabel
+        sx={{
+          display: 'block',
+        }}
+        control={
+          <Switch
+            checked={loading}
+            onChange={() => setLoading(!loading)}
+            name="loading"
+            color="primary"
+          />
+        }
+        label="Loading"
+      />
+      <LoadingButton
+        size="small"
+        onClick={handleClick}
+        endIcon={<SaveIcon />}
+        loading={loading}
+        loadingPosition="end"
+        variant="contained"
+      >
+        Save
+      </LoadingButton>
+    </Box>
+  </>
+  );
 }
-
 
 export default AdminSettings;

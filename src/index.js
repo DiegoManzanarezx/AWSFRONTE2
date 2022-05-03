@@ -17,7 +17,7 @@ ReactDOM.render(
         <Route path = "/" element = {<Home/>}/>
         <Route path = "/agent/*" element = {<App/>}/>
         <Route path = "/supervisor/*" element = {<AppSupervisor/>}/>
-        {/*<Route path = "/manager" element = {<AppManager/>}/>*/}
+        <Route path = "/manager/*" element = {<AppManager/>}/>
       </Routes>
     </BrowserRouter>,
   document.getElementById('root')

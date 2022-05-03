@@ -19,6 +19,8 @@ function Login() {
             window.location.href = '/agent'
         else if(userName == 's')
             window.location.href = '/supervisor'
+        else if (userName == 'm')
+            window.location.href = '/manager'
     };
 
         return(

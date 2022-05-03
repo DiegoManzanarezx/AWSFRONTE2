@@ -17,7 +17,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
 // AGENT VIEWS
-import AgentDashboard from "./views/agentViews/AgentDashboard";
+import SupervisorDashboard from "./views/agentViews/SupervisorDashboard";
 import CallHistory from "./views/agentViews/AgentCallsHistory";
 import AgentProfile from "./views/agentViews/AgentProfile";
 import AgentRecordings from "./views/agentViews/AgentRecordings";
@@ -200,7 +200,7 @@ export default function PermanentDrawerLeft() {
             >
                 <Toolbar />
                     <Routes>
-                        <Route path="/" element={<AgentDashboard />} />
+                        <Route path="/" element={<SupervisorDashboard />} />
                         <Route path="/agents" element={<AgentFilter />} />
                         <Route path="/agents/:agentId" element={<AgentStatistics />} />
                         <Route path="/videos" element={<AgentRecordings />}>
