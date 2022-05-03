@@ -135,7 +135,7 @@ export default function PermanentDrawerLeft() {
             >
                 <Toolbar sx={activeCall && { backgroundColor: '#4caf50' }}>
                     <Typography variant="h6" noWrap component="div">
-                        Amazon RSH
+                        Amazon RSH xD
                     </Typography>
                 </Toolbar>
             </AppBar>
