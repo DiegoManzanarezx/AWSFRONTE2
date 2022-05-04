@@ -45,7 +45,7 @@ function AgentRecordingShared() {
                     {
                         videos.map(video => {
                             return (
-                                <Link to={`/recordings/${video.id}`} style={{ textDecoration: 'none' }}>
+                                <Link to={`/agent/recordings/${video.id}`} style={{ textDecoration: 'none' }}>
                                     <ListItem>
                                         <ListItemAvatar>
                                             <Avatar>
