@@ -24,7 +24,7 @@ function AdminSettings() {
       Recording settings
     </Typography>
     <Typography variant="h6">
-      Versiooon
+      Version
     </Typography>
     <Typography variant="body2">
       2

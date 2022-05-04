@@ -79,7 +79,7 @@ export default function AgentFilter() {
       <Grid>
 
         <Typography variant="h5" gutterBottom>
-          Agent list
+          Agents list
           <Button variant="contained">Add+</Button>
 
         </Typography>
