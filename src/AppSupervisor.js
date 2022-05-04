@@ -25,6 +25,7 @@ import QuestionDB from "./views/agentViews/QuestionDB";
 import AgentSettings from "./views/agentViews/AgentSettings";
 import AgentFilter from "./views/agentViews/AgentFilter"
 
+
 import VideoFilter from "./views/agentViews/VideoFilter";
 import AgentFilterSupervisor from "./views/agentViews/AgentFilterSupervisor";
 import AgentStatistics from './views/agentViews/AgentStatistics';
@@ -136,7 +137,7 @@ export default function PermanentDrawerLeft() {
             >
                 <Toolbar sx={activeCall && { backgroundColor: '#4caf50' }}>
                     <Typography variant="h6" noWrap component="div">
-                        Amazon RSH 
+                        Amazon RSH
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -200,16 +201,16 @@ export default function PermanentDrawerLeft() {
                 sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
             >
                 <Toolbar />
-                    <Routes>
-                        <Route path="/" element={<SupervisorDashboard />} />
-                        <Route path="/agents" element={<AgentFilter />} />
-                        <Route path="/agents/:agentId" element={<AgentStatistics />} />
-                        <Route path="/videos" element={<AgentRecordings />}>
-                            <Route path=":recordingId" element={<AgentRecordings />} />
-                        </Route>
-                        <Route path="/globalstadistics" element={<GlobalStadistics />} />
-                        <Route path="/" element={<Home />} />
-                    </Routes>
+                <Routes>
+                    <Route path="/" element={<SupervisorDashboard />} />
+                    <Route path="/agents" element={<AgentFilterSupervisor />} />
+                    <Route path="/agents/:agentId" element={<AgentStatistics />} />
+                    <Route path="/videos" element={<AgentRecordings />}>
+                        <Route path=":recordingId" element={<AgentRecordings />} />
+                    </Route>
+                    <Route path="/globalstadistics" element={<GlobalStadistics />} />
+                    <Route path="/" element={<Home />} />
+                </Routes>
 
 
             </Box>
