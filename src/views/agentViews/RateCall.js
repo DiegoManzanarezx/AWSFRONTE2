@@ -86,7 +86,7 @@ export default function CallRating({ blobUrl }) {
         <video src={ blobUrl } controls autoPlay loop />
       </Box>
       <Box component="div" mt={4}>
-        <Link to="/">
+        <Link to="/agent/">
           <Button variant="outlined">Close ticket</Button>
         </Link>
       </Box>

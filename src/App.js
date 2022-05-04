@@ -23,6 +23,7 @@ import AgentProfile from "./views/agentViews/AgentProfile";
 import AgentRecordingShared from "./views/agentViews/AgentRecordingShared";
 import QuestionDB from "./views/agentViews/QuestionDB";
 import AgentSettings from "./views/agentViews/AgentSettings";
+import RateCall from './views/agentViews/RateCall';
 
 // Icons
 import HomeIcon from '@mui/icons-material/Home';
@@ -39,7 +40,6 @@ import CallEndIcon from '@mui/icons-material/CallEnd';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import PauseIcon from '@mui/icons-material/Pause';
 import StopIcon from '@mui/icons-material/Stop';
-import RateCall from './views/agentViews/RateCall';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Home from './components/agentComponents/Home';
@@ -61,7 +61,7 @@ export default function PermanentDrawerLeft() {
     
   ];
   const callActions = [
-    { icon: <Link to="/rate"><CallEndIcon /></Link>, name: 'Hang up', onclick: () => { handleActiveCall(false); stopRecording(); } },
+    { icon: <Link to="/agent/rate"><CallEndIcon /></Link>, name: 'Hang up', onclick: () => { handleActiveCall(false); stopRecording(); } },
     { icon: <FiberManualRecordIcon />, name: 'Start recording' },
     { icon: <PauseIcon />, name: 'Pause recording' },
     { icon: <StopIcon />, name: 'Stop recording' },
