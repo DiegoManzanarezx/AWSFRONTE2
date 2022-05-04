@@ -23,6 +23,7 @@ import AgentProfile from "./views/agentViews/AgentProfile";
 import AgentRecordings from "./views/agentViews/AgentRecordings";
 import QuestionDB from "./views/agentViews/QuestionDB";
 import AgentSettings from "./views/agentViews/AgentSettings";
+import AgentFilter from "./views/agentViews/AgentFilter"
 
 import VideoFilter from "./views/agentViews/VideoFilter";
 import AgentFilterSupervisor from "./views/agentViews/AgentFilterSupervisor";
@@ -135,7 +136,7 @@ export default function PermanentDrawerLeft() {
             >
                 <Toolbar sx={activeCall && { backgroundColor: '#4caf50' }}>
                     <Typography variant="h6" noWrap component="div">
-                        Amazon RSH xD
+                        Amazon RSH 
                     </Typography>
                 </Toolbar>
             </AppBar>

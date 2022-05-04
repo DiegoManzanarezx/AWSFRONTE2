@@ -47,6 +47,8 @@ import StopIcon from '@mui/icons-material/Stop';
 import RateCall from './views/agentViews/RateCall';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import LogoutIcon from '@mui/icons-material/Logout';
+
 
 
 const drawerWidth = 240;
@@ -133,6 +135,19 @@ export default function PermanentDrawerLeft() {
                             </ListItem>
                         </CustomLink>
                     ))}
+
+                    <CustomLink sx={{
+                        position: "fixed",
+                        bottom: "0",
+                        marginBottom: "5%"
+                }} to='/'>
+                        <ListItem button >
+                            <ListItemIcon >
+                                <LogoutIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Logout" />
+                        </ListItem>
+                    </CustomLink>
 
 
 
