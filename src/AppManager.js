@@ -23,7 +23,6 @@ import AgentProfile from "./views/agentViews/AgentProfile";
 import AgentRecordings from "./views/agentViews/AgentRecordings";
 import QuestionDB from "./views/agentViews/QuestionDB";
 import AgentSettings from "./views/agentViews/AgentSettings";
-import AdmSett from "./views/agentViews/AdmSett";
 import AgentFilter from "./views/agentViews/AgentFilter";
 import SupervisorFilter from "./views/agentViews/SupervisorFilter";
 import ManagerFilter from "./views/agentViews/ManagerFilter";
@@ -47,6 +46,9 @@ import StopIcon from '@mui/icons-material/Stop';
 import RateCall from './views/agentViews/RateCall';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import LogoutIcon from '@mui/icons-material/Logout';
+import AdminSettings from './views/agentViews/AdminSettings';
+
 
 
 const drawerWidth = 240;
@@ -60,12 +62,12 @@ export default function PermanentDrawerLeft() {
 
     const { status, startRecording, stopRecording, mediaBlobUrl } = useReactMediaRecorder({ audio: true, screen: true });
     const menuLinkItemsManagers = [
-        { icon: <HomeIcon />, name: 'Home', link: '/' },
-        { icon: <PersonIcon />, name: 'Agents', link: '/profile' },
-        { icon: <SupervisorAccountIcon />, name: 'Supervisors', link: '/supervisorprofile' },
-        { icon: <AccountBoxIcon />, name: 'Managers', link: '/managerprofile' },
-        { icon: <VideocamIcon />, name: 'Agents videos', link: '/recordings' },
-        { icon: <SettingsIcon />, name: 'Video settings', link: '/settings' },
+        { icon: <HomeIcon />, name: 'Home', link: '/manager/' },
+        { icon: <PersonIcon />, name: 'Agents', link: '/manager/profile' },
+        { icon: <SupervisorAccountIcon />, name: 'Supervisors', link: '/manager/supervisorprofile' },
+        { icon: <AccountBoxIcon />, name: 'Managers', link: '/manager/managerprofile' },
+        { icon: <VideocamIcon />, name: 'Agents videos', link: '/manager/recordings' },
+        { icon: <SettingsIcon />, name: 'Video settings', link: '/manager/settings' },
     ];
 
 
@@ -134,6 +136,19 @@ export default function PermanentDrawerLeft() {
                         </CustomLink>
                     ))}
 
+                    <CustomLink sx={{
+                        position: "fixed",
+                        bottom: "0",
+                        marginBottom: "5%"
+                    }} to='/'>
+                        <ListItem button >
+                            <ListItemIcon >
+                                <LogoutIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Logout" />
+                        </ListItem>
+                    </CustomLink>
+
 
 
 
@@ -151,12 +166,11 @@ export default function PermanentDrawerLeft() {
                     <Route path="/supervisorprofile" element={<SupervisorFilter />} />
                     <Route path="/managerprofile" element={<ManagerFilter />} />
                     <Route path="/calls" element={<CallHistory />} />
-                    <Route path="/settings" element={<AdmSett />} />
                     <Route path="/recordings" element={<AgentRecordings />}>
                         <Route path=":recordingId" element={<AgentRecordings />} />
                     </Route>
                     <Route path="/questiondb" element={<QuestionDB />} />
-                    <Route path="/settings" element={<AgentSettings />} />
+                    <Route path="/settings" element={<AdminSettings />} />
                     <Route path="/rate" element={<RateCall blobUrl={mediaBlobUrl} />} />
                 </Routes>
 
