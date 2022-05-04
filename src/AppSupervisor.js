@@ -51,6 +51,7 @@ import AlignVerticalBottomIcon from '@mui/icons-material/AlignVerticalBottom';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Home from './components/agentComponents/Home';
 import GlobalStadistics from './views/agentViews/GlobalStadistics';
+import AgentFilter from './views/agentViews/AgentFilter';
 
 const drawerWidth = 240;
 
