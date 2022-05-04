@@ -105,7 +105,7 @@ export default function AgentFilter() {
             }
           }).map((item) => (
             <div key={item.nombre} style={{ border: "1px solid grey" }}>
-              <Link to={`/supervisor/agents/${item.id}`} style={{ textDecoration: 'none' }}>
+              
                 <ListItem>
                   <ListItemAvatar >
                     <Avatar>
@@ -114,11 +114,13 @@ export default function AgentFilter() {
                   </ListItemAvatar>
                   <ListItemText primary={item.nombre} secondary={item.id} sx={{ color: '#1976D2' }} />
                   <ListItemAvatar>
-                    <MoreVertIcon />
+                    <MoreVertIcon />      
                   </ListItemAvatar>
 
                 </ListItem>
-              </Link>
+             
+
+             
 
             </div>
           ))}
