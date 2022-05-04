@@ -23,7 +23,6 @@ import AgentProfile from "./views/agentViews/AgentProfile";
 import AgentRecordings from "./views/agentViews/AgentRecordings";
 import QuestionDB from "./views/agentViews/QuestionDB";
 import AgentSettings from "./views/agentViews/AgentSettings";
-import AdmSett from "./views/agentViews/AdmSett";
 import AgentFilter from "./views/agentViews/AgentFilter";
 import SupervisorFilter from "./views/agentViews/SupervisorFilter";
 import ManagerFilter from "./views/agentViews/ManagerFilter";
@@ -48,6 +47,7 @@ import RateCall from './views/agentViews/RateCall';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LogoutIcon from '@mui/icons-material/Logout';
+import AdminSettings from './views/agentViews/AdminSettings';
 
 
 
@@ -166,12 +166,11 @@ export default function PermanentDrawerLeft() {
                     <Route path="/supervisorprofile" element={<SupervisorFilter />} />
                     <Route path="/managerprofile" element={<ManagerFilter />} />
                     <Route path="/calls" element={<CallHistory />} />
-                    <Route path="/settings" element={<AdmSett />} />
                     <Route path="/recordings" element={<AgentRecordings />}>
                         <Route path=":recordingId" element={<AgentRecordings />} />
                     </Route>
                     <Route path="/questiondb" element={<QuestionDB />} />
-                    <Route path="/settings" element={<AgentSettings />} />
+                    <Route path="/settings" element={<AdminSettings />} />
                     <Route path="/rate" element={<RateCall blobUrl={mediaBlobUrl} />} />
                 </Routes>
 
