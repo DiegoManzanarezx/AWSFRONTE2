@@ -63,11 +63,11 @@ export default function PermanentDrawerLeft() {
     const { status, startRecording, stopRecording, mediaBlobUrl } = useReactMediaRecorder({ audio: true, screen: true });
     const menuLinkItemsManagers = [
         { icon: <HomeIcon />, name: 'Home', link: '/' },
-        { icon: <PersonIcon />, name: 'Agents', link: '/profile' },
-        { icon: <SupervisorAccountIcon />, name: 'Supervisors', link: '/supervisorprofile' },
-        { icon: <AccountBoxIcon />, name: 'Managers', link: '/managerprofile' },
-        { icon: <VideocamIcon />, name: 'Agents videos', link: '/recordings' },
-        { icon: <SettingsIcon />, name: 'Video settings', link: '/settings' },
+        { icon: <PersonIcon />, name: 'Agents', link: '/manager/profile' },
+        { icon: <SupervisorAccountIcon />, name: 'Supervisors', link: '/manager/supervisorprofile' },
+        { icon: <AccountBoxIcon />, name: 'Managers', link: '/manager/managerprofile' },
+        { icon: <VideocamIcon />, name: 'Agents videos', link: '/manager/recordings' },
+        { icon: <SettingsIcon />, name: 'Video settings', link: '/manager/settings' },
     ];
 
 
