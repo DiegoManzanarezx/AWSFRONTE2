@@ -60,41 +60,15 @@ const CustomLink = styled(Link)(({ theme }) => ({
 
 export default function PermanentDrawerLeft() {
 
-    const { status, startRecording, stopRecording, mediaBlobUrl } = useReactMediaRecorder({ audio: true, screen: true });
     const menuLinkItemsManagers = [
         { icon: <HomeIcon />, name: 'Home', link: '/manager/' },
-        { icon: <PersonIcon />, name: 'Agents', link: '/manager/profile' },
-        { icon: <SupervisorAccountIcon />, name: 'Supervisors', link: '/manager/supervisorprofile' },
-        { icon: <AccountBoxIcon />, name: 'Managers', link: '/manager/managerprofile' },
+        { icon: <PersonIcon />, name: 'Agents', link: '/manager/lstAgents' },
+        { icon: <SupervisorAccountIcon />, name: 'Supervisors', link: '/manager/lstSupervisors' },
+        { icon: <AccountBoxIcon />, name: 'Managers', link: '/manager/lstManagers' },
         { icon: <VideocamIcon />, name: 'Agents videos', link: '/manager/recordings' },
         { icon: <SettingsIcon />, name: 'Video settings', link: '/manager/settings' },
     ];
 
-
-    const [open, setOpen] = React.useState(false);
-    const [selectedValue, setSelectedValue] = React.useState([]);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = (value) => {
-        setOpen(false);
-        setSelectedValue(value);
-
-        if (value == "pick_up") {
-            handleActiveCall(true);
-            startRecording();
-        }
-
-    };
-
-
-    const [activeCall, setActiveCall] = React.useState(false);
-
-    const handleActiveCall = value => {
-        setActiveCall(value);
-    }
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -103,7 +77,7 @@ export default function PermanentDrawerLeft() {
                 position="fixed"
                 sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
             >
-                <Toolbar sx={activeCall && { backgroundColor: '#4caf50' }}>
+                <Toolbar >
                     <Typography variant="h6" noWrap component="div">
                         Amazon RSH
                     </Typography>
@@ -124,7 +98,6 @@ export default function PermanentDrawerLeft() {
                 <Toolbar />
                 <Divider />
                 <List>
-
                     {menuLinkItemsManagers.map((item) => (
                         <CustomLink to={item.link}>
                             <ListItem button>
@@ -148,11 +121,6 @@ export default function PermanentDrawerLeft() {
                             <ListItemText primary="Logout" />
                         </ListItem>
                     </CustomLink>
-
-
-
-
-
                 </List>
             </Drawer>
             <Box
@@ -162,16 +130,14 @@ export default function PermanentDrawerLeft() {
                 <Toolbar />
                 <Routes>
                     <Route path="/" element={<ManagerDashboard />} />
-                    <Route path="/profile" element={<AgentFilter />} />
-                    <Route path="/supervisorprofile" element={<SupervisorFilter />} />
-                    <Route path="/managerprofile" element={<ManagerFilter />} />
+                    <Route path="/lstAgents" element={<AgentFilter />} />
+                    <Route path="/lstSupervisors" element={<SupervisorFilter />} />
+                    <Route path="/lstManagers" element={<ManagerFilter />} />
                     <Route path="/calls" element={<CallHistory />} />
                     <Route path="/recordings" element={<AgentRecordings />}>
                         <Route path=":recordingId" element={<AgentRecordings />} />
                     </Route>
-                    <Route path="/questiondb" element={<QuestionDB />} />
                     <Route path="/settings" element={<AdminSettings />} />
-                    <Route path="/rate" element={<RateCall blobUrl={mediaBlobUrl} />} />
                 </Routes>
 
 

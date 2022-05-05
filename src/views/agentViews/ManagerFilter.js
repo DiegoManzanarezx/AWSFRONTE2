@@ -150,10 +150,8 @@ return (
               >
               <MenuItem style={{ backgroundColor: 'transparent' }} >
               </MenuItem>
-
-
                     <MenuItem>
-                      <Typography variant='h6'>Edit</Typography>
+                      <Typography aria-describedby={id} variant="h6" onClick={handleClick1}>Edit</Typography>
                     </MenuItem>
                     <MenuItem>
                       <Typography variant='h6'>Delete</Typography>
