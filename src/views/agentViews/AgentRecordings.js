@@ -140,8 +140,7 @@ function AgentRecordings() {
                     <ListItemText primary={video.title} secondary={video.date} sx={{color:'#1976D2'}} />
                     </Link>
                    
-                        
-                    
+                  
                         <Menu
                             id="basic-menu"
                             anchorEl={anchorEl}
@@ -182,8 +181,6 @@ function AgentRecordings() {
                                         </FormControl>
                                       </Box>
 
-
-                                
                                 </MenuItem>
 
 

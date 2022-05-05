@@ -111,9 +111,7 @@ export default function AgentFilter() {
                                         </Avatar>
                                     </ListItemAvatar>
                                     <ListItemText primary={item.nombre} secondary={item.id} sx={{ color: '#1976D2' }} />
-                                    <ListItemAvatar>
-                                        <MoreVertIcon />
-                                    </ListItemAvatar>
+
 
                                 </ListItem>
                             </Link>

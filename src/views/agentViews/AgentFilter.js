@@ -72,6 +72,21 @@ let clientes = [
 
 export default function AgentFilter() {
   const [list, setList] = useState("");
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const [age, setAge] = React.useState('');
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
+
   return (
 
     <div>
@@ -113,10 +128,14 @@ export default function AgentFilter() {
                     </Avatar>
                   </ListItemAvatar>
                   <ListItemText primary={item.nombre} secondary={item.id} sx={{ color: '#1976D2' }} />
-                  <ListItemAvatar>
-                    <MoreVertIcon />      
-                  </ListItemAvatar>
-
+                  <Button id="basic-button"
+                            aria-controls={open ? 'basic-menu' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={open ? 'true' : undefined}
+                            onClick={handleClick}>
+                            
+                        <MoreVertIcon />
+                  </Button>
                 </ListItem>
              
 
