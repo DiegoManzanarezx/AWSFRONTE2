@@ -24,7 +24,7 @@ function AgentRecordingShared() {
 
     const videos = [
         { id: 1, title: "Video 1", date: "Feb 08, 2022" },
-        { id: 2, title: "Video 2", date: "Aug   27, 2022" },
+        { id: 2, title: "Video 2", date: "Aug 27, 2022" },
         { id: 3, title: "Video 3", date: "Oct 23, 2022" },
         { id: 4, title: "Video 4", date: "Nov 16, 2022" },
         { id: 5, title: "Video 5", date: "Nov 16, 2022" },
@@ -45,7 +45,7 @@ function AgentRecordingShared() {
                     {
                         videos.map(video => {
                             return (
-                                <Link to={`/recordings/${video.id}`} style={{ textDecoration: 'none' }}>
+                                <Link to={`/agent/recordings/${video.id}`} style={{ textDecoration: 'none' }}>
                                     <ListItem>
                                         <ListItemAvatar>
                                             <Avatar>
