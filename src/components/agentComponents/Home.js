@@ -3,6 +3,8 @@ import Login from './Login';
 import { Typography } from '@mui/material';
 import { Container } from '@mui/material';
 import { Grid } from '@mui/material';
+import AxiosGet from "../../views/agentViews/AxiosGet";
+import AxiosPost from "../../views/AxiosPost";
 
 function Home(){
     return(

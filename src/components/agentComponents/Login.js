@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Login.css";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -6,12 +6,16 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import HeadsetMicIcon from '@mui/icons-material/HeadsetMic';
 import { Typography } from '@mui/material';
+import axios from "axios";
 
-var username = 0;
+
+
+const miPostListURL = "http://localhost:8080/v1/employees/signin";
 
 
 function Login() {
     const [userName, setUserName] = useState('');
+    const [userPassword, setUserPassword] = useState('');
 
     const routeHandler = () => {
         console.log(userName)
@@ -22,6 +26,22 @@ function Login() {
         else if (userName == 'm')
             window.location.href = '/manager'
     };
+
+    
+
+    const [post, setPost] = React.useState(null);
+    React.useEffect(() => {
+        axios.get({miPostListURL}).then((response) => {
+            setPost(response.data);
+
+        });
+    }, []);
+    function crearPost() {
+        axios.post(miPostListURL, {
+            employee_name: userName,
+            employee_password: userPassword
+        }).then((response) => { setPost(response.data) });
+    }
 
         return(
             <div className='Login'>
@@ -74,7 +94,9 @@ function Login() {
                         }}
                         noValidate
                         autoComplete="off">
-                        <TextField label="Password" color="secondary" focused />
+                        <TextField label="Password" color="secondary" focused onChange={(event) => {
+            setUserPassword(event.target.value);
+          }} />
                     </Box>
                 </div>
 
@@ -87,8 +109,8 @@ function Login() {
                             transform: "translate(-50%, -50%)"
                             }}
                     >
-                    <Button onClick={event =>  window.location.href='/agent'} variant="outlined">Cancel</Button>
-                    <Button onClick={routeHandler} variant="contained" >Next</Button>      
+                    <Button onClick={crearPost} variant="outlined">Cancel</Button>
+                    <Button onClick={crearPost} variant="contained" >Next</Button>      
                     </Stack>
                 </div>
             </div> 
