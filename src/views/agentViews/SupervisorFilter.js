@@ -80,7 +80,7 @@ return (
         anchorEl={anchorE2}
         onClose={handleClose1}
         anchorReference="anchorPosition"
-        anchorPosition={{ top: 200, left: 900 }}
+        anchorPosition={{ top: 150, left: 900 }}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left',
