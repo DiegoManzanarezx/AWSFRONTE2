@@ -74,7 +74,7 @@ return (
         anchorEl={anchorE2}
         onClose={handleClose1}
         anchorReference="anchorPosition"
-        anchorPosition={{ top: 200, left: 900 }}
+        anchorPosition={{ top: 150, left: 900 }}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left',
@@ -149,9 +149,6 @@ return (
               }}
               >
               <MenuItem style={{ backgroundColor: 'transparent' }} >
-              <Typography variant="h6" gutterBottom>
-                Assign supervisor
-              </Typography>
               </MenuItem>
 
 
