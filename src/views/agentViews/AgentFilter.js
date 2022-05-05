@@ -24,6 +24,7 @@ import TextField from '@mui/material/TextField';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
+import Popover from '@mui/material/Popover';
 let clientes = [
 {
 nombre: 'Angel Bosquez',
@@ -58,15 +59,29 @@ role: 'Agent'
 ];
 export default function AgentFilter() {
 const [anchorEl, setAnchorEl] = React.useState(null);
+const [anchorE2, setAnchorE2] = React.useState(null);
 const open = Boolean(anchorEl);
+const open2 = Boolean(anchorE2);
+
 const handleClick = (event) => {
 setAnchorEl(event.currentTarget);
 };
 const handleClose = () => {
 setAnchorEl(null);
 };
+
+const handleClick1 = (event) => {
+  setAnchorE2(event.currentTarget);
+};
+
+const handleClose1 = () => {
+  setAnchorE2(null);
+};
+
+
 ///
 const [age, setAge] = React.useState('');
+const id = open2 ? 'simple-popover' : undefined;
 const handleChange = (event) => {
 setAge(event.target.value);
 };
@@ -76,7 +91,52 @@ return (
   <Grid>
     <Typography variant="h5" gutterBottom>
     Agents list
-    <Button variant="contained">Add+</Button>
+    <Button aria-describedby={id} variant="contained" onClick={handleClick1}>Add+</Button>
+    <Popover
+        id={id}
+        open={open2}
+        anchorEl={anchorE2}
+        onClose={handleClose1}
+        anchorReference="anchorPosition"
+        anchorPosition={{ top: 200, left: 900 }}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical:'top',
+          horizontal: 'right'
+        }}
+      >
+        <Typography sx={{ p: 2 }}>
+          Create a new Agent
+        </Typography>
+        <Typography sx={{ p: 2 }}>
+          <Stack>
+              Name:
+            <TextField required id="standard-required" label="Required" variant="standard" />
+          </Stack>
+        </Typography>
+        <Typography sx={{ p: 2 }}>
+          <Stack>
+              Email:
+            <TextField required id="standard-required" label="Required" variant="standard" />
+          </Stack>
+        </Typography>
+        <Typography sx={{ p: 2 }}>
+          <Stack>
+              Password:
+            <TextField id="standard-password-input" label="Password" type="password" variant="standard" />
+          </Stack>
+        </Typography>
+
+        <Typography sx={{ p: 2 }}>
+          <Stack>
+            <Button>Save</Button>
+          </Stack>
+        </Typography>
+
+      </Popover>
     </Typography>
     <br></br>
     <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
