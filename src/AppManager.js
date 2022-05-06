@@ -26,6 +26,8 @@ import AgentSettings from "./views/agentViews/AgentSettings";
 import AgentFilter from "./views/agentViews/AgentFilter";
 import SupervisorFilter from "./views/agentViews/SupervisorFilter";
 import ManagerFilter from "./views/agentViews/ManagerFilter";
+import ManagerRecordings from "./views/agentViews/ManagerRecordings";
+
 
 
 // Icons
@@ -134,8 +136,8 @@ export default function PermanentDrawerLeft() {
                     <Route path="/lstSupervisors" element={<SupervisorFilter />} />
                     <Route path="/lstManagers" element={<ManagerFilter />} />
                     <Route path="/calls" element={<CallHistory />} />
-                    <Route path="/recordings" element={<AgentRecordings />}>
-                        <Route path=":recordingId" element={<AgentRecordings />} />
+                    <Route path="/recordings" element={<ManagerRecordings />}>
+                        <Route path=":recordingId" element={<ManagerRecordings />} />
                     </Route>
                     <Route path="/settings" element={<AdminSettings />} />
                 </Routes>
