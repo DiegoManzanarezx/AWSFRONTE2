@@ -79,7 +79,7 @@ export default function RecipeReviewCard() {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography variant="h6">Manager</Typography>
-          <Typography paragraph>Julieta Noguez</Typography>
+          <Typography paragraph>Juana Julieta Noguez Monroy</Typography>
           <Typography variant="h6">Area</Typography>
           <Typography paragraph>Operations customer services</Typography>
           <Typography variant="h6">Performance</Typography>

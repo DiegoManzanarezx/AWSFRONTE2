@@ -19,6 +19,9 @@ import Box from '@mui/material/Box';
 import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 import Popover from '@mui/material/Popover';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
 
 let supervisores = [
 {
@@ -42,9 +45,14 @@ export default function AgentFilter() {
 const { recordingId } = useParams();
 const [anchorEl, setAnchorEl] = React.useState(null);
 const [anchorE2, setAnchorE2] = React.useState(null);
+const [anchorE3, setAnchorE3] = React.useState(null);
+const [anchorE4, setAnchorE4] = React.useState(null);
 
 const open = Boolean(anchorEl);
 const open2 = Boolean(anchorE2);
+const open3 = Boolean(anchorE3);
+const open4 = Boolean(anchorE4);
+
 
 const handleClick = (event) => {
 setAnchorEl(event.currentTarget);
@@ -60,9 +68,27 @@ const handleClick1 = (event) => {
 const handleClose1 = () => {
   setAnchorE2(null);
 };
+
+const handleClick2 = (event) => {
+  setAnchorE3(event.currentTarget);
+};
+
+const handleClose2 = () => {
+  setAnchorE3(null);
+};
+
+const handleClick3 = (event) => {
+  setAnchorE4(event.currentTarget);
+};
+
+const handleClose3 = () => {
+  setAnchorE4(null);
+};
 ///
 const [age, setAge] = React.useState('');
 const id = open2 ? 'simple-popover' : undefined;
+const id3 = open3 ? 'simple-popover' : undefined;
+const id4 = open4 ? 'simple-popover' : undefined;
 
 const handleChange = (event) => {
 setAge(event.target.value);
@@ -91,7 +117,7 @@ return (
         }}
       >
         <Typography sx={{ p: 2 }}>
-          Create a new Supervisor
+          Create a new supervisor
         </Typography>
         <Typography sx={{ p: 2 }}>
           <Stack>
@@ -155,14 +181,105 @@ return (
               }}
               >
               <MenuItem style={{ backgroundColor: 'transparent' }} >
-              <Typography variant="h6" gutterBottom>
-                Assign agents
+              <Typography id="basic-button2" 
+          aria-controls={open4 ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open4 ? 'true' : undefined}
+          onClick={handleClick3} variant="h6">
+                Assigned new agents
               </Typography>
               </MenuItem>
+              <Menu
+            id="basic-menu2"
+            anchorE={anchorE4}
+            open={open4}
+            onClose={handleClose3}
+            MenuListProps={{
+            'aria-labelledby': 'basic-button',
+            }}
+            >
+            <MenuItem style={{ backgroundColor: 'transparent' }} >
+            <Typography variant="h6" gutterBottom>
+            Assigned agents
+            </Typography>
+            </MenuItem>
+            
+            <MenuItem style={{ backgroundColor: 'transparent' }}>
+            <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Agents</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={age}
+                label="Agent"
+                onChange={handleChange}
+                >
+                <MenuItem value={10}>Agent Diego Manzanarez</MenuItem>
+                <MenuItem value={20}>Agent Cristiano Ronaldo</MenuItem>
+                <MenuItem value={30}>Agent Luis Suarez</MenuItem>
+                <MenuItem value={40}>Agent Santiago Hernandez</MenuItem>
+                <MenuItem value={50}>Agent Javier Valencia</MenuItem>
+              </Select>
+            </FormControl>
+            </Box>
+            </MenuItem>
+            <br></br>
+            <MenuItem style={{ backgroundColor: 'transparent' }} >
+            <Stack spacing={2} direction="row">
+            <Button variant="outlined" onClick={handleClose3}> Cancel </Button>
+            <Button variant="contained">Save</Button>
+            </Stack>
+            </MenuItem>
+            </Menu>
+
 
               <MenuItem>
-                <Typography variant='h6'>Edit</Typography>
+                <Typography aria-describedby={id3} variant="h6" onClick={handleClick2}>Edit</Typography>
               </MenuItem>
+              <Popover
+                id={id3}
+                open={open3}
+                anchorEl={anchorE3}
+                onClose={handleClose2}
+                anchorReference="anchorPosition"
+                anchorPosition={{ top: 150, left: 900 }}
+                anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+                }}
+                transformOrigin={{
+                vertical:'top',
+                horizontal: 'right'
+                }}
+                >
+                <Typography sx={{ p: 2 }}>
+                Edit supervisor information
+                </Typography>
+                <Typography sx={{ p: 2 }}>
+                <Stack>
+                Name:
+                <TextField required id="standard-required" label="Required" variant="standard" />
+                </Stack>
+                </Typography>
+                <Typography sx={{ p: 2 }}>
+                <Stack>
+                Email:
+                <TextField required id="standard-required" label="Required" variant="standard" />
+                </Stack>
+                </Typography>
+                <Typography sx={{ p: 2 }}>
+                <Stack>
+                Password:
+                <TextField id="standard-password-input" label="Password" type="password" variant="standard" />
+                </Stack>
+                </Typography>
+                <Typography sx={{ p: 2 }}>
+                <Stack>
+                <Button>Save</Button>
+                </Stack>
+                </Typography>
+              </Popover>
               <MenuItem>
                 <Typography variant='h6'>Delete</Typography>
               </MenuItem>

@@ -7,12 +7,10 @@ function AdminSettings() {
 
   const [alignment, setAlignment] = React.useState('web');
 
-  const handleChange = (
-    event: React.MouseEvent<HTMLElement>,
-    newAlignment: string,
-  ) => {
+  const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
+
 
   const [loading, setLoading] = React.useState(false);
   function handleClick() {
