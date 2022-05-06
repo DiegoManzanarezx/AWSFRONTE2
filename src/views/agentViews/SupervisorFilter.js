@@ -1,4 +1,4 @@
-import React, { useState }from 'react';
+import React, { useState } from 'react';
 import "./AgentFilter.css";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -30,21 +30,21 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Snackbar from '@mui/material/Snackbar';
 import Slide from '@mui/material/Slide';
 let supervisores = [
-{
-nombre: 'Roberto Almero',
-id: '123456',
-role: 'Supervisor'
-},
-{
-nombre: 'Daniel Javier',
-id: '654321',
-role: 'Supervisor'
-},
-{
-nombre: 'Fernanda Arraza',
-id: '615243',
-role: 'Supervisor'
-},
+  {
+    nombre: 'Roberto Almero',
+    id: '123456',
+    role: 'Supervisor'
+  },
+  {
+    nombre: 'Daniel Javier',
+    id: '654321',
+    role: 'Supervisor'
+  },
+  {
+    nombre: 'Fernanda Arraza',
+    id: '615243',
+    role: 'Supervisor'
+  },
 ];
 export default function AgentFilter() {
 const { recordingId } = useParams();
@@ -236,123 +236,123 @@ return (
                 }}
                 >
                 */}
-                <MenuItem style={{ backgroundColor: 'transparent' }} >
-                <Typography variant="h6" gutterBottom>
-                Assigned agents
-                </Typography>
-                </MenuItem>
-                <MenuItem style={{ backgroundColor: 'transparent' }}>
-                <Box sx={{ minWidth: 120 }}>
-                <FormControl fullWidth>
-                  <InputLabel id="demo-simple-select-label">Agents</InputLabel>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={age}
-                    label="Agent"
-                    onChange={handleChange}
+                      <MenuItem style={{ backgroundColor: 'transparent' }} >
+                        <Typography variant="h6" gutterBottom>
+                          Assigned agents
+                        </Typography>
+                      </MenuItem>
+                      <MenuItem style={{ backgroundColor: 'transparent' }}>
+                        <Box sx={{ minWidth: 120 }}>
+                          <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Agents</InputLabel>
+                            <Select
+                              labelId="demo-simple-select-label"
+                              id="demo-simple-select"
+                              value={age}
+                              label="Agent"
+                              onChange={handleChange}
+                            >
+                              <MenuItem value={10}>Agent Diego Manzanarez</MenuItem>
+                              <MenuItem value={20}>Agent Cristiano Ronaldo</MenuItem>
+                              <MenuItem value={30}>Agent Luis Suarez</MenuItem>
+                              <MenuItem value={40}>Agent Santiago Hernandez</MenuItem>
+                              <MenuItem value={50}>Agent Javier Valencia</MenuItem>
+                            </Select>
+                          </FormControl>
+                        </Box>
+                      </MenuItem>
+                      <br></br>
+                      <MenuItem style={{ backgroundColor: 'transparent' }} >
+                        <Stack spacing={2} direction="row">
+                          <Button variant="outlined" onClick={handleClose3}> Cancel </Button>
+                          <Button variant="contained">Save</Button>
+                        </Stack>
+                      </MenuItem>
+                      {/*</Menu>*/}
+                    </Popover>
+                    <MenuItem>
+                      <Typography aria-describedby={id3} variant="h6" onClick={handleClick2}>Edit</Typography>
+                    </MenuItem>
+                    <Popover
+                      id={id3}
+                      open={open3}
+                      anchorEl={anchorE3}
+                      onClose={handleClose2}
+                      anchorReference="anchorPosition"
+                      anchorPosition={{ top: 150, left: 900 }}
+                      anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                      }}
+                      transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right'
+                      }}
                     >
-                    <MenuItem value={10}>Agent Diego Manzanarez</MenuItem>
-                    <MenuItem value={20}>Agent Cristiano Ronaldo</MenuItem>
-                    <MenuItem value={30}>Agent Luis Suarez</MenuItem>
-                    <MenuItem value={40}>Agent Santiago Hernandez</MenuItem>
-                    <MenuItem value={50}>Agent Javier Valencia</MenuItem>
-                  </Select>
-                </FormControl>
-                </Box>
-                </MenuItem>
-                <br></br>
-                <MenuItem style={{ backgroundColor: 'transparent' }} >
-                <Stack spacing={2} direction="row">
-                <Button variant="outlined" onClick={handleClose3}> Cancel </Button>
-                <Button variant="contained">Save</Button>
-                </Stack>
-                </MenuItem>
-                {/*</Menu>*/}
-              </Popover>
-              <MenuItem>
-              <Typography aria-describedby={id3} variant="h6" onClick={handleClick2}>Edit</Typography>
-              </MenuItem>
-              <Popover
-                id={id3}
-                open={open3}
-                anchorEl={anchorE3}
-                onClose={handleClose2}
-                anchorReference="anchorPosition"
-                anchorPosition={{ top: 150, left: 900 }}
-                anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-                }}
-                transformOrigin={{
-                vertical:'top',
-                horizontal: 'right'
-                }}
-                >
-                <Typography sx={{ p: 2 }}>
-                Edit supervisor information
-                </Typography>
-                <Typography sx={{ p: 2 }}>
-                <Stack>
-                Name:
-                <TextField required id="standard-required" label="Required" variant="standard" />
-                </Stack>
-                </Typography>
-                <Typography sx={{ p: 2 }}>
-                <Stack>
-                Email:
-                <TextField required id="standard-required" label="Required" variant="standard" />
-                </Stack>
-                </Typography>
-                <Typography sx={{ p: 2 }}>
-                <Stack>
-                Password:
-                <TextField id="standard-password-input" label="Password" type="password" variant="standard" />
-                </Stack>
-                </Typography>
-                <Typography sx={{ p: 2 }}>
-                <Stack>
-                <Button>Save</Button>
-                </Stack>
-                </Typography>
-              </Popover>
-              <MenuItem>
-              <Typography variant="h6" onClick={handleClickOpen}>Delete</Typography>
-              </MenuItem>
-              <Dialog
-              open={open5}
-              onClose={handleClose4}
-              aria-labelledby="alert-dialog-title"
-              aria-describedby="alert-dialog-description"
-              >
-              <DialogTitle id="alert-dialog-title">
-              {"Are you sure you want to delete this supervisor?"}
-              </DialogTitle>
-              <DialogContent>
-              <DialogContentText id="alert-dialog-description">
-              This action can not be undone, so please make sure you want to delete this profile
-              </DialogContentText>
-              </DialogContent>
-              <DialogActions>
-              <Button onClick={handleClose4}>No</Button>
-              <Button onClick={handleClose4} autoFocus>
-              Yes
-              </Button>
-              </DialogActions>
-              </Dialog>
-              </Menu>
-            </ListItem>
-            <Button id="basic-button"
-            aria-controls={open ? 'basic-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-            onClick={handleClick}>
-            
-            <MoreVertIcon />
-            </Button>
-            </Stack>
-            
-          </div>
+                      <Typography sx={{ p: 2 }}>
+                        Edit supervisor information
+                      </Typography>
+                      <Typography sx={{ p: 2 }}>
+                        <Stack>
+                          Name:
+                          <TextField required id="standard-required" label="Required" variant="standard" />
+                        </Stack>
+                      </Typography>
+                      <Typography sx={{ p: 2 }}>
+                        <Stack>
+                          Email:
+                          <TextField required id="standard-required" label="Required" variant="standard" />
+                        </Stack>
+                      </Typography>
+                      <Typography sx={{ p: 2 }}>
+                        <Stack>
+                          Password:
+                          <TextField id="standard-password-input" label="Password" type="password" variant="standard" />
+                        </Stack>
+                      </Typography>
+                      <Typography sx={{ p: 2 }}>
+                        <Stack>
+                          <Button>Save</Button>
+                        </Stack>
+                      </Typography>
+                    </Popover>
+                    <MenuItem>
+                      <Typography variant="h6" onClick={handleClickOpen}>Delete</Typography>
+                    </MenuItem>
+                    <Dialog
+                      open={open5}
+                      onClose={handleClose4}
+                      aria-labelledby="alert-dialog-title"
+                      aria-describedby="alert-dialog-description"
+                    >
+                      <DialogTitle id="alert-dialog-title">
+                        {"Are you sure you want to delete this supervisor?"}
+                      </DialogTitle>
+                      <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                          This action can not be undone, so please make sure you want to delete this profile
+                        </DialogContentText>
+                      </DialogContent>
+                      <DialogActions>
+                        <Button onClick={handleClose4}>No</Button>
+                        <Button onClick={handleClose4} autoFocus>
+                          Yes
+                        </Button>
+                      </DialogActions>
+                    </Dialog>
+                  </Menu>
+                </ListItem>
+                <Button id="basic-button"
+                  aria-controls={open ? 'basic-menu' : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? 'true' : undefined}
+                  onClick={handleClick}>
+
+                  <MoreVertIcon />
+                </Button>
+              </Stack>
+
+            </div>
           ))}
         </List>
         <Pagination count={5} />
