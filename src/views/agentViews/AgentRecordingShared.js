@@ -23,14 +23,14 @@ const Item = styled(Paper)(({ theme }) => ({
 function AgentRecordingShared() {
 
     const videos = [
-        { id: 1, title: "Video 1", date: "Feb 08, 2022" },
-        { id: 2, title: "Video 2", date: "Aug 27, 2022" },
-        { id: 3, title: "Video 3", date: "Oct 23, 2022" },
+        { id: 1, title: "Video 1", date: "Dic 12, 2021" },
+        { id: 2, title: "Video 2", date: "Jan 11, 2022" },
+        { id: 3, title: "Video 3", date: "Oct 31, 2022" },
         { id: 4, title: "Video 4", date: "Nov 16, 2022" },
-        { id: 5, title: "Video 5", date: "Nov 16, 2022" },
-        { id: 6, title: "Video 6", date: "Nov 16, 2022" },
-        { id: 7, title: "Video 7", date: "Nov 16, 2022" },
-        { id: 8, title: "Video 8", date: "Nov 16, 2022" },
+        { id: 5, title: "Video 5", date: "Nov 17, 2022" },
+        { id: 6, title: "Video 6", date: "Nov 18, 2022" },
+        { id: 7, title: "Video 7", date: "Nov 19, 2022" },
+        { id: 8, title: "Video 8", date: "Nov 20, 2022" },
     ];
 
     const { recordingId } = useParams();

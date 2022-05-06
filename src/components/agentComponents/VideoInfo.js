@@ -66,33 +66,33 @@ export const VideoInfo = () => {
     "Previous problem",
     "Manager request",
     "Unsatisfied user",
-    "Unspecified","Solved",
-    "To review", 
+    "Unspecified", "Solved",
+    "To review",
     "Annoying user",
     "Impatient user",
     "Internet search",
-    "Medium quality", 
-    "Search in previously solved problems", 
+    "Medium quality",
+    "Search in previously solved problems",
     "Account error service",
-    "Personal information within the video", 
+    "Personal information within the video",
     "Review because of element in the recording not working"
   ];
 
   let tags = [
     "Solved",
-    "To review", 
+    "To review",
     "Annoying user",
     "Impatient user",
     "Internet search",
-    "Medium quality", 
-    "Search in previously solved problems", 
+    "Medium quality",
+    "Search in previously solved problems",
     "Account error service",
-    "Personal information within the video", 
+    "Personal information within the video",
     "Review because of element in the recording not working"
   ];
 
-    //Form
-    const theme = useTheme();
+  //Form
+  const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
   const handleChangeTags = (event) => {
@@ -105,44 +105,44 @@ export const VideoInfo = () => {
     );
   };
 
-  const updateTags = () =>{
+  const updateTags = () => {
     tags = tempArray;
     setReload(tags);
-    for(var i=0; i<tags.length; i++){
+    for (var i = 0; i < tags.length; i++) {
       console.log(tags[i]);
     }
   }
 
   const [reload, setReload] = React.useState([]);
-  
 
-  
+
+
   return (
     <>
       <Typography variant="h5" mb={3}>Video information</Typography>
       <Typography variant='button' style={{ display: 'block' }}>Date</Typography>
-      <Typography variant='body2' style={{ display: 'block' }} gutterBottom>26/04/22</Typography>
+      <Typography variant='body2' style={{ display: 'block' }} gutterBottom>12/12/22</Typography>
 
       <Typography variant='button' style={{ display: 'block' }}>Agent ID</Typography>
-      <Typography variant='body2' style={{ display: 'block' }} gutterBottom>21453</Typography>
+      <Typography variant='body2' style={{ display: 'block' }} gutterBottom>1234</Typography>
 
       <Typography variant='button' style={{ display: 'block' }}>Length</Typography>
-      <Typography variant='body2' style={{ display: 'block' }} mb={4}>20 minutes</Typography>
+      <Typography variant='body2' style={{ display: 'block' }} mb={4}>34 minutes</Typography>
 
       <Typography variant='button' style={{ display: 'block' }}>User ID</Typography>
-      <Typography variant='body2' style={{ display: 'block' }} gutterBottom>65433</Typography>
+      <Typography variant='body2' style={{ display: 'block' }} gutterBottom>4321</Typography>
 
       <Typography variant='button' style={{ display: 'block' }}>User Name</Typography>
-      <Typography variant='body2' style={{ display: 'block' }} gutterBottom>Karen Macías</Typography>
+      <Typography variant='body2' style={{ display: 'block' }} gutterBottom>Dario Pacheco</Typography>
 
       <Typography variant='button' style={{ display: 'block' }}>Requested service</Typography>
       <Typography variant='body2' style={{ display: 'block' }} mb={4}>Account support</Typography>
-      
+
       <br></br>
 
       <Typography variant="h7" gutterBottom sx={{ fontWeight: 'bold' }}>Related Tags</Typography>
 
-      <IconButton variant="filled" aria-label="plus" size="large" sx={{bgcolor:'#E39EE9'}}
+      <IconButton variant="filled" aria-label="plus" size="large" sx={{ bgcolor: '#E39EE9' }}
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
@@ -157,97 +157,97 @@ export const VideoInfo = () => {
 
 
       <Menu
-                            id="basic-menu"
-                            anchorEl={anchorEl}
-                            open={open}
-                            onClose={handleClose}
-                            MenuListProps={{
-                              'aria-labelledby': 'basic-button',
-                            }}
-                        >
-                                <MenuItem style={{ backgroundColor: 'transparent' }} >
-                                  <Typography variant="h6" gutterBottom>
-                                      Add new tags
-                                  </Typography>
-                                  </MenuItem>
-
-                         
-
-
-                                  <MenuItem style={{ backgroundColor: 'transparent' }}>
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem style={{ backgroundColor: 'transparent' }} >
+          <Typography variant="h6" gutterBottom>
+            Add new tags
+          </Typography>
+        </MenuItem>
 
 
 
 
-                                        <Box sx={{ minWidth: 120 }}>
-                                        <FormControl sx={{ m: 1, width: 300 }}>
-                                            <InputLabel id="demo-multiple-chip-label">Tags</InputLabel>
-                                            <Select
-                                              labelId="demo-multiple-chip-label"
-                                              id="demo-multiple-chip"
-                                              multiple
-                                              value={personName}
-                                              onChange={handleChangeTags}
-                                              input={<OutlinedInput id="select-multiple-chip" label="Tags" />}
-                                              renderValue={(selected) => (
-                                                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                                                  
-                                                  {
-                                                  
-                                                  selected.map((value) => {
-                                                    if(!tempArray.includes(value))
-                                                      tempArray.push(value)
-                                                    return value;
-                                                }).map((value) => (
-                                                    
-                                                    <Chip key={value} label={value} />
-                                                    
-                                                  )                                        
-                                                  )}
-
-                                                </Box>
-                                              )}
-                                              MenuProps={MenuProps}
-                                            >
-                                              {names.map((name) => (
-                                                <MenuItem
-                                                  key={name}
-                                                  value={name}
-                                                  style={getStyles(name, personName, theme)}
-                                                >
-                                                  {name}
-                                                </MenuItem>
-                                              ))}
-                                            </Select>
-                                          </FormControl>
-                                      </Box>
-
-
-                                
-                                </MenuItem>
-
-
-                                <br></br>
-                                <MenuItem style={{ backgroundColor: 'transparent' }} >
-                                  <Stack spacing={2} direction="row">
-                                    <Button variant="outlined" onClick={handleClose}> Cancel </Button>
-                                    <Button variant="contained" onClick={updateTags}> Save </Button>
-                                  </Stack>
-                                </MenuItem>
-                        </Menu>
+        <MenuItem style={{ backgroundColor: 'transparent' }}>
 
 
 
 
-      <Box sx={{ lineHeight: '45px', marginTop: '10px'}} key={reload}>
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl sx={{ m: 1, width: 300 }}>
+              <InputLabel id="demo-multiple-chip-label">Tags</InputLabel>
+              <Select
+                labelId="demo-multiple-chip-label"
+                id="demo-multiple-chip"
+                multiple
+                value={personName}
+                onChange={handleChangeTags}
+                input={<OutlinedInput id="select-multiple-chip" label="Tags" />}
+                renderValue={(selected) => (
+                  <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+
+                    {
+
+                      selected.map((value) => {
+                        if (!tempArray.includes(value))
+                          tempArray.push(value)
+                        return value;
+                      }).map((value) => (
+
+                        <Chip key={value} label={value} />
+
+                      )
+                      )}
+
+                  </Box>
+                )}
+                MenuProps={MenuProps}
+              >
+                {names.map((name) => (
+                  <MenuItem
+                    key={name}
+                    value={name}
+                    style={getStyles(name, personName, theme)}
+                  >
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </Box>
+
+
+
+        </MenuItem>
+
+
+        <br></br>
+        <MenuItem style={{ backgroundColor: 'transparent' }} >
+          <Stack spacing={2} direction="row">
+            <Button variant="outlined" onClick={handleClose}> Cancel </Button>
+            <Button variant="contained" onClick={updateTags}> Save </Button>
+          </Stack>
+        </MenuItem>
+      </Menu>
+
+
+
+
+      <Box sx={{ lineHeight: '45px', marginTop: '10px' }} key={reload}>
         {reload.map(tag => (
-          <Box sx={{ display: 'inline'}} mr ={1}>
-            <Chip label={tag} variant="outlined" sx={{backgroundColor:"#edf2fb" }} />
-          </Box>   
+          <Box sx={{ display: 'inline' }} mr={1}>
+            <Chip label={tag} variant="outlined" sx={{ backgroundColor: "#edf2fb" }} />
+          </Box>
         ))}
-        
+
       </Box>
-      
+
     </>
   )
 }
