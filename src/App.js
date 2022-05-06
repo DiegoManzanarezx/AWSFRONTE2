@@ -61,10 +61,12 @@ export default function PermanentDrawerLeft() {
     
   ];
   const callActions = [
-    { icon: <Link to="/agent/rate"><CallEndIcon /></Link>, name: 'Hang up', onclick: () => { handleActiveCall(false); stopRecording(); } },
+    { icon: <Link to="/agent/rate"><CallEndIcon /></Link>, name: 'Hang up', onclick: () => { handleActiveCall(false); stopRecording(); }},
+    {/*
     { icon: <FiberManualRecordIcon />, name: 'Start recording' },
     { icon: <PauseIcon />, name: 'Pause recording' },
     { icon: <StopIcon />, name: 'Stop recording' },
+    */}
   ];
 
   const [open, setOpen] = React.useState(false);
