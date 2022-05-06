@@ -42,9 +42,11 @@ export default function AgentFilter() {
 const { recordingId } = useParams();
 const [anchorEl, setAnchorEl] = React.useState(null);
 const [anchorE2, setAnchorE2] = React.useState(null);
+const [anchorE3, setAnchorE3] = React.useState(null);
 
 const open = Boolean(anchorEl);
 const open2 = Boolean(anchorE2);
+const open3 = Boolean(anchorE3);
 
 const handleClick = (event) => {
 setAnchorEl(event.currentTarget);
@@ -60,9 +62,18 @@ const handleClick1 = (event) => {
 const handleClose1 = () => {
   setAnchorE2(null);
 };
+
+const handleClick2 = (event) => {
+  setAnchorE3(event.currentTarget);
+};
+
+const handleClose2 = () => {
+  setAnchorE3(null);
+};
 ///
 const [age, setAge] = React.useState('');
 const id = open2 ? 'simple-popover' : undefined;
+const id3 = open3 ? 'simple-popover' : undefined;
 
 const handleChange = (event) => {
 setAge(event.target.value);
@@ -91,7 +102,7 @@ return (
         }}
       >
         <Typography sx={{ p: 2 }}>
-          Create a new Supervisor
+          Create a new supervisor
         </Typography>
         <Typography sx={{ p: 2 }}>
           <Stack>
@@ -161,8 +172,51 @@ return (
               </MenuItem>
 
               <MenuItem>
-                <Typography variant='h6'>Edit</Typography>
+                <Typography aria-describedby={id3} variant="h6" onClick={handleClick2}>Edit</Typography>
               </MenuItem>
+              <Popover
+                id={id3}
+                open={open3}
+                anchorEl={anchorE3}
+                onClose={handleClose2}
+                anchorReference="anchorPosition"
+                anchorPosition={{ top: 150, left: 900 }}
+                anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+                }}
+                transformOrigin={{
+                vertical:'top',
+                horizontal: 'right'
+                }}
+                >
+                <Typography sx={{ p: 2 }}>
+                Edit supervisor information
+                </Typography>
+                <Typography sx={{ p: 2 }}>
+                <Stack>
+                Name:
+                <TextField required id="standard-required" label="Required" variant="standard" />
+                </Stack>
+                </Typography>
+                <Typography sx={{ p: 2 }}>
+                <Stack>
+                Email:
+                <TextField required id="standard-required" label="Required" variant="standard" />
+                </Stack>
+                </Typography>
+                <Typography sx={{ p: 2 }}>
+                <Stack>
+                Password:
+                <TextField id="standard-password-input" label="Password" type="password" variant="standard" />
+                </Stack>
+                </Typography>
+                <Typography sx={{ p: 2 }}>
+                <Stack>
+                <Button>Save</Button>
+                </Stack>
+                </Typography>
+              </Popover>
               <MenuItem>
                 <Typography variant='h6'>Delete</Typography>
               </MenuItem>

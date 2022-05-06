@@ -60,28 +60,32 @@ role: 'Agent'
 export default function AgentFilter() {
 const [anchorEl, setAnchorEl] = React.useState(null);
 const [anchorE2, setAnchorE2] = React.useState(null);
+const [anchorE3, setAnchorE3] = React.useState(null);
 const open = Boolean(anchorEl);
 const open2 = Boolean(anchorE2);
-
+const open3 = Boolean(anchorE3);
 const handleClick = (event) => {
 setAnchorEl(event.currentTarget);
 };
 const handleClose = () => {
 setAnchorEl(null);
 };
-
 const handleClick1 = (event) => {
-  setAnchorE2(event.currentTarget);
+setAnchorE2(event.currentTarget);
 };
-
 const handleClose1 = () => {
-  setAnchorE2(null);
+setAnchorE2(null);
 };
-
-
+const handleClick2 = (event) => {
+  setAnchorE3(event.currentTarget);
+};
+  const handleClose2 = () => {
+  setAnchorE3(null);
+};
 ///
 const [age, setAge] = React.useState('');
 const id = open2 ? 'simple-popover' : undefined;
+const id3 = open3 ? 'simple-popover' : undefined;
 const handleChange = (event) => {
 setAge(event.target.value);
 };
@@ -93,50 +97,48 @@ return (
     Agents list
     <Button aria-describedby={id} variant="contained" onClick={handleClick1}>Add+</Button>
     <Popover
-        id={id}
-        open={open2}
-        anchorEl={anchorE2}
-        onClose={handleClose1}
-        anchorReference="anchorPosition"
-        anchorPosition={{ top: 200, left: 900 }}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical:'top',
-          horizontal: 'right'
-        }}
+      id={id}
+      open={open2}
+      anchorEl={anchorE2}
+      onClose={handleClose1}
+      anchorReference="anchorPosition"
+      anchorPosition={{ top: 200, left: 900 }}
+      anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'left',
+      }}
+      transformOrigin={{
+      vertical:'top',
+      horizontal: 'right'
+      }}
       >
-        <Typography sx={{ p: 2 }}>
-          Create a new Agent
-        </Typography>
-        <Typography sx={{ p: 2 }}>
-          <Stack>
-              Name:
-            <TextField required id="standard-required" label="Required" variant="standard" />
-          </Stack>
-        </Typography>
-        <Typography sx={{ p: 2 }}>
-          <Stack>
-              Email:
-            <TextField required id="standard-required" label="Required" variant="standard" />
-          </Stack>
-        </Typography>
-        <Typography sx={{ p: 2 }}>
-          <Stack>
-              Password:
-            <TextField id="standard-password-input" label="Password" type="password" variant="standard" />
-          </Stack>
-        </Typography>
-
-        <Typography sx={{ p: 2 }}>
-          <Stack>
-            <Button>Save</Button>
-          </Stack>
-        </Typography>
-
-      </Popover>
+      <Typography sx={{ p: 2 }}>
+      Create a new Agent
+      </Typography>
+      <Typography sx={{ p: 2 }}>
+      <Stack>
+      Name:
+      <TextField required id="standard-required" label="Required" variant="standard" />
+      </Stack>
+      </Typography>
+      <Typography sx={{ p: 2 }}>
+      <Stack>
+      Email:
+      <TextField required id="standard-required" label="Required" variant="standard" />
+      </Stack>
+      </Typography>
+      <Typography sx={{ p: 2 }}>
+      <Stack>
+      Password:
+      <TextField id="standard-password-input" label="Password" type="password" variant="standard" />
+      </Stack>
+      </Typography>
+      <Typography sx={{ p: 2 }}>
+      <Stack>
+      <Button>Save</Button>
+      </Stack>
+      </Typography>
+    </Popover>
     </Typography>
     <br></br>
     <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
@@ -174,15 +176,57 @@ return (
               >
               <MenuItem style={{ backgroundColor: 'transparent' }} >
               <Typography variant="h6" gutterBottom>
-                Assign supervisor
+              Assign supervisor
               </Typography>
               </MenuItem>
-
               <MenuItem>
-                <Typography variant='h6'>Edit</Typography>
+              <Typography aria-describedby={id3} variant="h6" onClick={handleClick2}>Edit</Typography>
               </MenuItem>
+              <Popover
+                id={id3}
+                open={open3}
+                anchorEl={anchorE3}
+                onClose={handleClose2}
+                anchorReference="anchorPosition"
+                anchorPosition={{ top: 150, left: 900 }}
+                anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+                }}
+                transformOrigin={{
+                vertical:'top',
+                horizontal: 'right'
+                }}
+                >
+                <Typography sx={{ p: 2 }}>
+                Edit agent information
+                </Typography>
+                <Typography sx={{ p: 2 }}>
+                <Stack>
+                Name:
+                <TextField required id="standard-required" label="Required" variant="standard" />
+                </Stack>
+                </Typography>
+                <Typography sx={{ p: 2 }}>
+                <Stack>
+                Email:
+                <TextField required id="standard-required" label="Required" variant="standard" />
+                </Stack>
+                </Typography>
+                <Typography sx={{ p: 2 }}>
+                <Stack>
+                Password:
+                <TextField id="standard-password-input" label="Password" type="password" variant="standard" />
+                </Stack>
+                </Typography>
+                <Typography sx={{ p: 2 }}>
+                <Stack>
+                <Button>Save</Button>
+                </Stack>
+                </Typography>
+              </Popover>
               <MenuItem>
-                <Typography variant='h6'>Delete</Typography>
+              <Typography variant='h6'>Delete</Typography>
               </MenuItem>
               </Menu>
             </ListItem>
@@ -195,12 +239,12 @@ return (
             <MoreVertIcon />
             </Button>
             </Stack>
-    
+            
           </div>
           ))}
         </List>
         <Pagination count={5} />
-      </Grid>
+       </Grid>
     </div>
   );
 }
