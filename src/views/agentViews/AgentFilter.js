@@ -21,10 +21,14 @@ import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
 import Popover from '@mui/material/Popover';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 let clientes = [
 {
 nombre: 'Angel Bosquez',
@@ -62,12 +66,11 @@ const [anchorEl, setAnchorEl] = React.useState(null);
 const [anchorE2, setAnchorE2] = React.useState(null);
 const [anchorE3, setAnchorE3] = React.useState(null);
 const [anchorE4, setAnchorE4] = React.useState(null);
-
+const [open5, setOpen] = React.useState(false);
 const open = Boolean(anchorEl);
 const open2 = Boolean(anchorE2);
 const open3 = Boolean(anchorE3);
 const open4 = Boolean(anchorE4);
-
 const handleClick = (event) => {
 setAnchorEl(event.currentTarget);
 };
@@ -81,24 +84,28 @@ const handleClose1 = () => {
 setAnchorE2(null);
 };
 const handleClick2 = (event) => {
-  setAnchorE3(event.currentTarget);
+setAnchorE3(event.currentTarget);
 };
 const handleClose2 = () => {
-  setAnchorE3(null);
+setAnchorE3(null);
 };
-
 const handleClick3 = (event) => {
-  setAnchorE4(event.currentTarget);
+setAnchorE4(event.currentTarget);
 };
 const handleClose3 = () => {
-  setAnchorE4(null);
+setAnchorE4(null);
+};
+const handleClickOpen = () => {
+setOpen(true);
+};
+const handleClose4 = () => {
+setOpen(false);
 };
 ///
 const [age, setAge] = React.useState('');
 const id = open2 ? 'simple-popover' : undefined;
 const id3 = open3 ? 'simple-popover' : undefined;
 const id4 = open4 ? 'simple-popover' : undefined;
-
 const handleChange = (event) => {
 setAge(event.target.value);
 };
@@ -210,8 +217,8 @@ return (
                 vertical:'top',
                 horizontal: 'right'
                 }}
-              >
-              <MenuItem style={{ backgroundColor: 'transparent' }} >
+                >
+                <MenuItem style={{ backgroundColor: 'transparent' }} >
                 <Typography variant="h6" gutterBottom>
                 Assigned supervisor
                 </Typography>
@@ -241,7 +248,6 @@ return (
                 <Button variant="contained">Save</Button>
                 </Stack>
                 </MenuItem>
-
               </Popover>
               <MenuItem>
               <Typography aria-describedby={id3} variant="h6" onClick={handleClick2}>Edit</Typography>
@@ -290,8 +296,29 @@ return (
                 </Typography>
               </Popover>
               <MenuItem>
-              <Typography variant='h6'>Delete</Typography>
+              <Typography variant="h6" onClick={handleClickOpen}>Delete</Typography>
               </MenuItem>
+              <Dialog
+              open={open5}
+              onClose={handleClose4}
+              aria-labelledby="alert-dialog-title"
+              aria-describedby="alert-dialog-description"
+              >
+              <DialogTitle id="alert-dialog-title">
+              {"Are you sure you want to delete this agent?"}
+              </DialogTitle>
+              <DialogContent>
+              <DialogContentText id="alert-dialog-description">
+              This action can not be undone, so please make sure you want to delete this profile
+              </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+              <Button onClick={handleClose4}>No</Button>
+              <Button onClick={handleClose4} autoFocus>
+              Yes
+              </Button>
+              </DialogActions>
+              </Dialog>
               </Menu>
             </ListItem>
             <Button id="basic-button"
@@ -308,7 +335,7 @@ return (
           ))}
         </List>
         <Pagination count={5} />
-       </Grid>
+      </Grid>
     </div>
   );
 }
