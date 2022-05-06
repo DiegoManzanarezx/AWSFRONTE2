@@ -11,6 +11,7 @@ const LineChart = () => {
 
     const data = {
         labels: ['1','2','3','4'],
+        
         datasets:[
             {
                 borderColor: 'rgb(255, 99, 132)',
@@ -23,6 +24,7 @@ const LineChart = () => {
                 backgroundColor: 'rgba(53, 162, 235, 0.5)',
                 data: [10,15,16,12],
                 lineTension: 0,
+                
             }
         ]
         }
@@ -33,7 +35,7 @@ const LineChart = () => {
                     height: "30%",
                     position: "relative",
                     top: "100%",
-                    left: "50%", border:"15px solid black"
+                    left: "30%", border:"15px solid black"
         }} className="chart">
             
             <Line data={data} />

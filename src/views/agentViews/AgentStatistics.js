@@ -62,9 +62,8 @@ let clientes = [
 
 var cliente = clientes[0];
 
-
-
 export default function AgentStatistics(){
+
     let { agentId } = useParams();
     return(
         <div className="chart">

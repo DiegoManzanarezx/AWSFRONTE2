@@ -5,6 +5,10 @@ import { Container } from '@mui/material';
 import { Grid } from '@mui/material';
 import AxiosGet from "../../views/agentViews/AxiosGet";
 import AxiosPost from "../../views/AxiosPost";
+import AxiosPut from "./AxiosPut";
+import AxiosDelete from "./AxiosDelete";
+import AxiosError from "./AxiosError";
+import AxiosInstancia from "./AxiosInstancia";
 
 function Home(){
     return(

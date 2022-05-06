@@ -31,7 +31,7 @@ const DoughnutChart = () => {
         height: "30%",
         position: "relative",
         top: "100%",
-        left: "60%", border:"15px solid black"}} className="chart">
+        left: "40%", border:"15px solid black"}} className="chart">
             
             <Doughnut data={data} />
         

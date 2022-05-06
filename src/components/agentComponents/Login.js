@@ -110,7 +110,7 @@ function Login() {
                             }}
                     >
                     <Button onClick={crearPost} variant="outlined">Cancel</Button>
-                    <Button onClick={crearPost} variant="contained" >Next</Button>      
+                    <Button onClick={routeHandler} variant="contained" >Next</Button>      
                     </Stack>
                 </div>
             </div> 

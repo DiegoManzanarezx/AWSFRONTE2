@@ -1,7 +1,7 @@
 import React, { useParams } from "react";
 import { Bar } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
-import { cliente } from './GlobalStadistics';
+import { cliente } from './AgentStatistics';
 Chart.register(...registerables);
 
 const BarChart = () => {
@@ -24,7 +24,7 @@ const BarChart = () => {
         height: "30%",
         position: "relative",
         top: "100%",
-        left: "50%", border:"15px solid black"}} className="chart">    
+        left: "30%", border:"15px solid black"}} className="chart">    
             <Bar data={data} />
         </div>
     )
