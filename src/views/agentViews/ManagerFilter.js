@@ -96,7 +96,7 @@ return (
         }}
       >
         <Typography sx={{ p: 2 }}>
-          Create a new Manager
+          Create a new manager
         </Typography>
         <Typography sx={{ p: 2 }}>
           <Stack>

@@ -61,9 +61,13 @@ export default function AgentFilter() {
 const [anchorEl, setAnchorEl] = React.useState(null);
 const [anchorE2, setAnchorE2] = React.useState(null);
 const [anchorE3, setAnchorE3] = React.useState(null);
+const [anchorE4, setAnchorE4] = React.useState(null);
+
 const open = Boolean(anchorEl);
 const open2 = Boolean(anchorE2);
 const open3 = Boolean(anchorE3);
+const open4 = Boolean(anchorE4);
+
 const handleClick = (event) => {
 setAnchorEl(event.currentTarget);
 };
@@ -79,13 +83,22 @@ setAnchorE2(null);
 const handleClick2 = (event) => {
   setAnchorE3(event.currentTarget);
 };
-  const handleClose2 = () => {
+const handleClose2 = () => {
   setAnchorE3(null);
+};
+
+const handleClick3 = (event) => {
+  setAnchorE4(event.currentTarget);
+};
+const handleClose3 = () => {
+  setAnchorE4(null);
 };
 ///
 const [age, setAge] = React.useState('');
 const id = open2 ? 'simple-popover' : undefined;
 const id3 = open3 ? 'simple-popover' : undefined;
+const id4 = open4 ? 'simple-popover' : undefined;
+
 const handleChange = (event) => {
 setAge(event.target.value);
 };
@@ -113,7 +126,7 @@ return (
       }}
       >
       <Typography sx={{ p: 2 }}>
-      Create a new Agent
+      Create a new agent
       </Typography>
       <Typography sx={{ p: 2 }}>
       <Stack>
@@ -175,10 +188,61 @@ return (
               }}
               >
               <MenuItem style={{ backgroundColor: 'transparent' }} >
-              <Typography variant="h6" gutterBottom>
-              Assign supervisor
+              <Typography id="basic-button2" aria-controls={open4 ? 'basic-menu' : undefined}
+              aria-haspopup="true"
+              aria-expanded={open4 ? 'true' : undefined}
+              onClick={handleClick3} variant="h6">
+              Assign new supervisor
               </Typography>
               </MenuItem>
+              <Popover
+                id={id4}
+                open={open4}
+                anchorEl={anchorE4}
+                onClose={handleClose3}
+                anchorReference="anchorPosition"
+                anchorPosition={{ top: 120, left: 900 }}
+                anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+                }}
+                transformOrigin={{
+                vertical:'top',
+                horizontal: 'right'
+                }}
+              >
+              <MenuItem style={{ backgroundColor: 'transparent' }} >
+                <Typography variant="h6" gutterBottom>
+                Assigned supervisor
+                </Typography>
+                </MenuItem>
+                <MenuItem style={{ backgroundColor: 'transparent' }}>
+                <Box sx={{ minWidth: 120 }}>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">Supervisors</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={age}
+                    label="Supervisors"
+                    onChange={handleChange}
+                    >
+                    <MenuItem value={10}>Supervisor Roberto Almero</MenuItem>
+                    <MenuItem value={20}>Supervisor Daniel Javier</MenuItem>
+                    <MenuItem value={30}>Supervisor Fernanda Arraza</MenuItem>
+                  </Select>
+                </FormControl>
+                </Box>
+                </MenuItem>
+                <br></br>
+                <MenuItem style={{ backgroundColor: 'transparent' }} >
+                <Stack spacing={2} direction="row">
+                <Button variant="outlined" onClick={handleClose3}> Cancel </Button>
+                <Button variant="contained">Save</Button>
+                </Stack>
+                </MenuItem>
+
+              </Popover>
               <MenuItem>
               <Typography aria-describedby={id3} variant="h6" onClick={handleClick2}>Edit</Typography>
               </MenuItem>
