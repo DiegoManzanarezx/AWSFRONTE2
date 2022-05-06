@@ -29,6 +29,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Snackbar from '@mui/material/Snackbar';
+import Slide from '@mui/material/Slide';
 let clientes = [
 {
 nombre: 'Angel Bosquez',
@@ -71,6 +73,22 @@ const open = Boolean(anchorEl);
 const open2 = Boolean(anchorE2);
 const open3 = Boolean(anchorE3);
 const open4 = Boolean(anchorE4);
+
+
+const [openLogout, setOpenLogout] = React.useState(false);
+const [transition, setTransition] = React.useState(undefined);
+function TransitionRight(props) {
+  return <Slide {...props} direction="right" />;
+}
+const handleClickLogout = (Transition) => () => {
+    setTransition(() => Transition);
+    setOpenLogout(true);
+};
+
+const handleCloseLogout = () => {
+    setOpenLogout(false);
+};
+
 const handleClick = (event) => {
 setAnchorEl(event.currentTarget);
 };
@@ -155,8 +173,15 @@ return (
       </Typography>
       <Typography sx={{ p: 2 }}>
       <Stack>
-      <Button>Save</Button>
+      <Button onClick={handleClickLogout(TransitionRight)}>Save</Button>
       </Stack>
+      <Snackbar
+                        open={openLogout}
+                        onClose={handleCloseLogout}
+                        TransitionComponent={transition}
+                        message="New agent added"
+                        key={transition ? transition.name : ''}
+                    />
       </Typography>
     </Popover>
     </Typography>

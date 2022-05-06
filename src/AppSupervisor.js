@@ -184,15 +184,6 @@ export default function PermanentDrawerLeft() {
                     </CustomLink>
 
 
-                    <Snackbar
-                        open={openLogout}
-                        onClose={handleCloseLogout}
-                        TransitionComponent={transition}
-                        message="New employee added"
-                        key={transition ? transition.name : ''}
-                    />
-
-
                 </List>
             </Drawer>
             <Box
